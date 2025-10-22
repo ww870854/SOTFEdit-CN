@@ -1,0 +1,380 @@
+﻿<UserControl x:Class="SOTFEdit.View.GameSetupPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:SOTFEdit.ViewModel"
+             xmlns:converters="clr-namespace:SOTFEdit.Infrastructure.Converters"
+             xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModel:GameSetupPageViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:GameModeToVisibilityConverter x:Key="GameModeToVisibilityConverter" />
+    </UserControl.Resources>
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
+        <Grid.Resources>
+            <Style x:Key="LabelStyle" TargetType="Label" BasedOn="{StaticResource MahApps.Styles.Label}">
+                <Setter Property="Margin" Value="0 0 10 0" />
+                <Setter Property="MinWidth" Value="180" />
+            </Style>
+            <Style x:Key="LabelTopStyle" TargetType="Label" BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="Margin" Value="10 0" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0 0 0 10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Label Style="{StaticResource LabelTopStyle}" Grid.Row="0"
+                   Content="{infrastructure:Translate 'game.setup.mode._label'}" />
+            <ComboBox Grid.Column="1" Grid.Row="0"
+                      SelectedValue="{Binding SelectedMode, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedValuePath="Tag">
+                <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.normal'}" Tag="Normal" />
+                <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.hard'}"
+                              Tag="{x:Static viewModel:GameSetupPageViewModel.HardGameMode}" />
+                <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.hardSurvival'}"
+                              Tag="{x:Static viewModel:GameSetupPageViewModel.HardSurvivalGameMode}" />
+                <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.peaceful'}"
+                              Tag="{x:Static viewModel:GameSetupPageViewModel.PeacefulGameMode}" />
+                <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.creative'}"
+                              Tag="{x:Static viewModel:GameSetupPageViewModel.CreativeGameMode}" />
+                <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.custom'}"
+                              Tag="{x:Static viewModel:GameSetupPageViewModel.CustomGameMode}" />
+            </ComboBox>
+            <Label Style="{StaticResource LabelTopStyle}" Grid.Column="0" Grid.Row="1"
+                   Content="{infrastructure:Translate 'game.setup.uid'}" />
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Uid}" Foreground="White" />
+        </Grid>
+        <GroupBox Margin="0 0 0 10" Header="{infrastructure:Translate 'game.setup.customSettings'}" Grid.Row="1"
+                  Padding="10"
+                  Visibility="{Binding SelectedMode, Converter={StaticResource GameModeToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0"
+                       Content="{infrastructure:Translate 'game.setup.consumableEffects._label'}"
+                       ToolTip="{infrastructure:Translate 'game.setup.consumableEffects._tooltip'}" />
+                <ComboBox Grid.Column="1" Grid.Row="0"
+                          ToolTip="{infrastructure:Translate 'game.setup.consumableEffects._tooltip'}"
+                          SelectedValue="{Binding SelectedConsumableEffects, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="Normal" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.hard'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHard}" />
+                </ComboBox>
+
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="1"
+                       Content="{infrastructure:Translate 'game.setup.playerStatsDamage._label'}"
+                       ToolTip="{infrastructure:Translate 'game.setup.playerStatsDamage._tooltip'}" />
+                <ComboBox Grid.Column="1" Grid.Row="1"
+                          ToolTip="{infrastructure:Translate 'game.setup.playerStatsDamage._tooltip'}"
+                          SelectedValue="{Binding SelectedPlayerStatsDamage, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="Normal" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.hard'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHard}" />
+                </ComboBox>
+
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="2"
+                       Content="{infrastructure:Translate 'game.setup.animalSpawnRate._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="2"
+                          SelectedValue="{Binding SelectedAnimalSpawnRate, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="3" Grid.Column="0"
+                       Content="{infrastructure:Translate 'game.setup.coldPenalties'}" />
+                <ComboBox Grid.Column="1" Grid.Row="3"
+                          SelectedValue="{Binding SelectedColdPenalties, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="Normal" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.hard'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHard}" />
+                </ComboBox>
+
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="4"
+                       Content="{infrastructure:Translate 'game.setup.buildingResistance'}" />
+                <ComboBox Grid.Column="1" Grid.Row="4"
+                          SelectedValue="{Binding SelectedBuildingResistance, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+
+                <Label Style="{StaticResource LabelStyle}" Grid.Row="5" Grid.Column="0"
+                       Content="{infrastructure:Translate 'game.setup.coldPenaltiesStatReduction'}" />
+                <ComboBox Grid.Column="1" Grid.Row="5"
+                          SelectedValue="{Binding SelectedColdPenaltiesStatReduction, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="Normal" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.hard'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHard}" />
+                </ComboBox>
+
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="6"
+                       Content="{infrastructure:Translate 'game.setup.inventoryPause'}" />
+                <CheckBox IsChecked="{Binding SelectedInventoryPause}" Grid.Row="6" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="7"
+                       Content="{infrastructure:Translate 'game.setup.reducedFoodInContainers'}" />
+                <CheckBox IsChecked="{Binding SelectedReducedFoodInContainers}" Grid.Row="7" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="8"
+                       Content="{infrastructure:Translate 'game.setup.reducedAmmoInContainers'}" />
+                <CheckBox IsChecked="{Binding SelectedReducedAmmoInContainers}" Grid.Row="8" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="9"
+                       Content="{infrastructure:Translate 'game.setup.singleUseContainers'}" />
+                <CheckBox IsChecked="{Binding SelectedSingleUseContainers}" Grid.Row="9" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="10"
+                       Content="{infrastructure:Translate 'game.setup.playersTriggerTraps'}" />
+                <CheckBox IsChecked="{Binding SelectedPlayersTriggerTraps}" Grid.Row="10" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="11"
+                       Content="{infrastructure:Translate 'game.setup.creativeMode'}" />
+                <CheckBox IsChecked="{Binding SelectedCreativeMode}" Grid.Row="11" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="12"
+                       Content="{infrastructure:Translate 'game.setup.immortalMode'}" />
+                <CheckBox IsChecked="{Binding SelectedPlayersImmortalMode}" Grid.Row="12" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="13"
+                       Content="{infrastructure:Translate 'game.setup.oneHitToCutTrees'}" />
+                <CheckBox IsChecked="{Binding SelectedOneHitToCutTrees}" Grid.Row="13" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="14"
+                       Content="{infrastructure:Translate 'game.setup.forcePlaceFullLoad'}" />
+                <CheckBox IsChecked="{Binding SelectedForcePlaceFullLoad}" Grid.Row="14" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="15"
+                       Content="{infrastructure:Translate 'game.setup.noCuttingsSpawn'}" />
+                <CheckBox IsChecked="{Binding SelectedNoCuttingsSpawn}" Grid.Row="15" Grid.Column="1" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="0 0 0 10" Header="{infrastructure:Translate 'game.setup.headers.enemiesCustom'}" Grid.Row="2"
+                  Padding="10"
+                  Visibility="{Binding SelectedMode, Converter={StaticResource GameModeToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="0"
+                       Content="{infrastructure:Translate 'game.setup.spawnEnemies'}" />
+                <CheckBox IsChecked="{Binding SelectedEnemySpawn}" Grid.Row="0" Grid.Column="1" />
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="1"
+                       Content="{infrastructure:Translate 'game.setup.enemyHealth._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="1"
+                          SelectedValue="{Binding SelectedEnemyHealth, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="2"
+                       Content="{infrastructure:Translate 'game.setup.enemyDamage._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="2"
+                          SelectedValue="{Binding SelectedEnemyDamage, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="3"
+                       Content="{infrastructure:Translate 'game.setup.enemyArmour._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="3"
+                          SelectedValue="{Binding SelectedEnemyArmour, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="4"
+                       Content="{infrastructure:Translate 'game.setup.enemyAggression._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="4"
+                          SelectedValue="{Binding SelectedEnemyAggression, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="5"
+                       Content="{infrastructure:Translate 'game.setup.enemySearchParties._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="5"
+                          SelectedValue="{Binding SelectedEnemySearchParties, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNORMAL}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Margin="0 0 0 10" Header="{infrastructure:Translate 'game.setup.headers.multiplayer'}" Padding="10"
+                  Grid.Row="3"
+                  Visibility="{Binding SelectedMode, Converter={StaticResource GameModeToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="0"
+                       Content="{infrastructure:Translate 'game.setup.pvpDamage'}" />
+                <ComboBox Grid.Column="1" Grid.Row="0"
+                          SelectedValue="{Binding SelectedPvpDamage, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueOff}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.reduced'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueReduced}" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueNormal}" />
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="{infrastructure:Translate 'game.setup.headers.weatherCustom'}" Padding="10" Grid.Row="4"
+                  Visibility="{Binding SelectedMode, Converter={StaticResource GameModeToVisibilityConverter}}">
+            <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="0"
+                       Content="{infrastructure:Translate 'game.setup.startingSeason._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="0"
+                          SelectedValue="{Binding SelectedStartingSeason, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.startingSeason.spring'}" Tag="Spring" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.startingSeason.summer'}" Tag="Summer" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.startingSeason.autumn'}" Tag="Autumn" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.startingSeason.winter'}" Tag="Winter" />
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="1"
+                       Content="{infrastructure:Translate 'game.setup.seasonLength._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="1"
+                          SelectedValue="{Binding SelectedSeasonLength, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.seasonLength.short'}" Tag="Short" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.seasonLength.default'}" Tag="Default" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.seasonLength.long'}" Tag="Long" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.seasonLength.realistic'}"
+                                  Tag="Realistic" />
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="2"
+                       Content="{infrastructure:Translate 'game.setup.dayLength._label'}" />
+                <ComboBox Grid.Column="1" Grid.Row="2"
+                          SelectedValue="{Binding SelectedDayLength, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.dayLength.short'}" Tag="Short" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.dayLength.default'}" Tag="Default" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.dayLength.long'}" Tag="Long" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.dayLength.realistic'}" Tag="Realistic" />
+                </ComboBox>
+                <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="3"
+                       Content="{infrastructure:Translate 'game.setup.precipitationFrequency._label'}"
+                       ToolTip="{infrastructure:Translate 'game.setup.precipitationFrequency._tooltip'}" />
+                <ComboBox Grid.Column="1" Grid.Row="3"
+                          ToolTip="{infrastructure:Translate 'game.setup.precipitationFrequency._tooltip'}"
+                          SelectedValue="{Binding SelectedPrecipitationFrequency, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Tag">
+                    <ComboBoxItem />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
+                                  Tag="Low" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.default'}"
+                                  Tag="Default" />
+                    <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.high'}"
+                                  Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueHigh}" />
+                </ComboBox>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>

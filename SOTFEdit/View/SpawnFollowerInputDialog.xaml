@@ -1,0 +1,43 @@
+﻿<mah:MetroWindow x:Class="SOTFEdit.View.SpawnFollowerInputDialog"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:local="clr-namespace:SOTFEdit.View"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+                 mc:Ignorable="d"
+                 Title="{infrastructure:Translate 'dialogs.spawnFollower.title'}"
+                 d:DataContext="{d:DesignInstance local:SpawnFollowerInputDialog}"
+                 WindowStartupLocation="CenterOwner"
+                 WindowTransitionsEnabled="False"
+                 Width="500"
+                 ResizeMode="NoResize"
+                 ShowMaxRestoreButton="False"
+                 IsMaxRestoreButtonEnabled="False"
+                 SizeToContent="Height"
+                 ShowMinButton="False"
+                 IsMinButtonEnabled="False"
+                 PreviewKeyDown="SpawnFollowerInputDialog_OnPreviewKeyDown"
+                 TitleCharacterCasing="Normal">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock TextWrapping="Wrap" Margin="0 0 0 5" Padding="5"
+                   Text="{infrastructure:Translate 'dialogs.spawnFollower.disclaimer'}" />
+        <mah:NumericUpDown Grid.Row="1" Value="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Interval="1"
+                           Minimum="1" Maximum="{Binding Max}" Margin="0 0 0 5" />
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="{infrastructure:Translate 'generic.ok'}" IsDefault="True" Margin="0 0 5 0"
+                    Command="{Binding OkCommand}" Padding="20 10"
+                    Background="{DynamicResource MahApps.Brushes.Accent}" />
+            <Button Content="{infrastructure:Translate 'generic.cancel'}" IsCancel="True"
+                    Command="{Binding CancelCommand}" Padding="20 10"
+                    Background="DarkRed" />
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="SOTFEdit.View.ArmorPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:SOTFEdit.ViewModel"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:st="http://schemas.spicytaco.io/"
+             xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+             xmlns:model="clr-namespace:SOTFEdit.Model"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModel:ArmorPageViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <GroupBox Header="{infrastructure:Translate 'armor.header'}" Margin="0 0 5 0">
+        <st:AutoGrid Margin="10" Rows="Auto,*,Auto" Columns="*">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 10 0 20">
+                <ComboBox Margin="0,0,5,0" ItemsSource="{Binding ArmourTypes}"
+                          SelectedItem="{Binding NewArmour.SelectedItem}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate DataType="{x:Type model:Item}">
+                            <st:AutoGrid Columns="*,*">
+                                <Image Width="32" Height="32" Source="{Binding ThumbnailMedium}">
+                                    <Image.ToolTip>
+                                        <Image Source="{Binding ThumbnailBig}" />
+                                    </Image.ToolTip>
+                                </Image>
+                                <Label Content="{Binding Name}" VerticalAlignment="Center" />
+                            </st:AutoGrid>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Button Margin="0,0,5,0" ToolTip="{infrastructure:Translate 'armor.buttons.setToDefault.tooltip'}"
+                        VerticalAlignment="Center"
+                        Command="{Binding NewArmour.SetDefaultDurabilityForNewArmourCommand}"
+                        Content="{infrastructure:Translate 'armor.buttons.setToDefault.text'}" />
+                <Button Margin="0,0,5,0" ToolTip="{infrastructure:Translate 'armor.buttons.setToMax.tooltip'}"
+                        VerticalAlignment="Center"
+                        Command="{Binding NewArmour.SetMaxDurabilityForNewArmourCommand}"
+                        Content="{infrastructure:Translate 'armor.buttons.setToMax.text'}" />
+                <mah:NumericUpDown
+                    ToolTip="{infrastructure:Translate 'armor.durabilityInput.tooltip'}"
+                    Margin="0,0,5,0"
+                    mah:TextBoxHelper.Watermark="{infrastructure:Translate 'armor.durabilityInput.watermark'}"
+                    Interval="10"
+                    VerticalAlignment="Center"
+                    Value="{Binding NewArmour.RemainingArmourpoints, UpdateSourceTrigger=PropertyChanged}"
+                    MinWidth="100" />
+                <Button Background="{DynamicResource MahApps.Brushes.Accent}"
+                        VerticalAlignment="Center"
+                        Command="{Binding NewArmour.AddArmorCommand}"
+                        Content="{infrastructure:Translate 'generic.add'}" />
+            </StackPanel>
+            <DataGrid Height="Auto" AutoGenerateColumns="False"
+                      SelectionMode="Single" ItemsSource="{Binding ArmourView}"
+                      CanUserAddRows="false"
+                      CanUserDeleteRows="False">
+                <DataGrid.Resources>
+                    <DataTemplate x:Key="NumericUpDownTemplate" DataType="{x:Type viewModel:ArmourData}">
+                        <Grid>
+                            <mah:NumericUpDown
+                                ToolTip="{infrastructure:Translate 'armor.durabilityInput.tooltip'}"
+                                Value="{Binding ArmourPiece.RemainingArmourpoints, UpdateSourceTrigger=PropertyChanged}"
+                                Minimum="{Binding MinDurability, Mode=OneWay}"
+                                Maximum="{Binding MaxDurability, Mode=OneWay}" />
+                        </Grid>
+                    </DataTemplate>
+                    <DataTemplate x:Key="ImageTemplate" DataType="{x:Type viewModel:ArmourData}">
+                        <Image Width="32" Height="32" Source="{Binding Image}">
+                            <Image.ToolTip>
+                                <Image Source="{Binding ImageBig}" />
+                            </Image.ToolTip>
+                        </Image>
+                    </DataTemplate>
+                    <DataTemplate x:Key="ActionButtons" DataType="{x:Type viewModel:ArmourData}">
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Button Margin="0,0,5,0" Background="DarkRed"
+                                    Command="{Binding DataContext.RemoveArmourCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                    CommandParameter="{Binding}"
+                                    Content="{infrastructure:Translate 'armor.buttons.remove'}" />
+                            <Button Margin="0,0,5,0" Command="{Binding SetDurabilityCommand}"
+                                    CommandParameter="{Binding DefaultDurability}"
+                                    Content="{infrastructure:Translate 'armor.buttons.default'}" />
+                            <Button Background="{DynamicResource MahApps.Brushes.Accent}"
+                                    Command="{Binding SetDurabilityCommand}"
+                                    CommandParameter="{Binding MaxDurability}"
+                                    Content="{infrastructure:Translate 'armor.buttons.max'}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </DataGrid.Resources>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding (viewModel:ArmourData.Id), Mode=OneTime}"
+                                        Header="{infrastructure:Translate 'armor.headers.id'}" IsReadOnly="True" />
+                    <DataGridTemplateColumn CanUserSort="False" Header=""
+                                            CellTemplate="{StaticResource ImageTemplate}" />
+                    <DataGridTextColumn Binding="{Binding (viewModel:ArmourData.Name), Mode=OneTime}"
+                                        Header="{infrastructure:Translate 'armor.headers.name'}" IsReadOnly="True" />
+                    <DataGridTemplateColumn Header="{infrastructure:Translate 'armor.headers.durability'}"
+                                            CellTemplate="{StaticResource NumericUpDownTemplate}" />
+                    <DataGridTemplateColumn Width="*" Header="{infrastructure:Translate 'armor.headers.actions'}"
+                                            CellTemplate="{StaticResource ActionButtons}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="0 20 0 0"
+                        HorizontalAlignment="Right">
+                <Button Padding="10" ToolTip="{infrastructure:Translate 'armor.buttons.setAllToDefault.tooltip'}"
+                        Margin="0,0,10,0"
+                        Command="{Binding SetAllToDefaultCommand}"
+                        Content="{infrastructure:Translate 'armor.buttons.setAllToDefault.text'}" />
+                <Button Background="{DynamicResource MahApps.Brushes.Accent}"
+                        ToolTip="{infrastructure:Translate 'armor.buttons.setAllToMax.text'}" Padding="10"
+                        Command="{Binding SetAllToMaxCommand}"
+                        Content="{infrastructure:Translate 'armor.buttons.setAllToMax.text'}" />
+            </StackPanel>
+        </st:AutoGrid>
+    </GroupBox>
+</UserControl>

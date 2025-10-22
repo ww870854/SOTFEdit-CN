@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33403.182
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTFEdit", "SOTFEdit\SOTFEdit.csproj", "{449BE113-5D17-4F36-8834-090D5BAA41BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZoomControl", "ZoomControl\ZoomControl.csproj", "{C4D74D5A-99AB-44E2-8752-73B059E1E378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTFEdit.Companion.Shared", "SOTFEdit.Companion.Shared\SOTFEdit.Companion.Shared.csproj", "{088FDE7D-97E3-4282-A593-164AD0EFCD93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOTFEdit.Companion.Shared.Tests", "SOTFEdit.Companion.Shared.Tests\SOTFEdit.Companion.Shared.Tests.csproj", "{F78C12BA-4B62-4FBF-A753-D33AC61CDBF7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{449BE113-5D17-4F36-8834-090D5BAA41BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449BE113-5D17-4F36-8834-090D5BAA41BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449BE113-5D17-4F36-8834-090D5BAA41BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449BE113-5D17-4F36-8834-090D5BAA41BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4D74D5A-99AB-44E2-8752-73B059E1E378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4D74D5A-99AB-44E2-8752-73B059E1E378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4D74D5A-99AB-44E2-8752-73B059E1E378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4D74D5A-99AB-44E2-8752-73B059E1E378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{088FDE7D-97E3-4282-A593-164AD0EFCD93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088FDE7D-97E3-4282-A593-164AD0EFCD93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088FDE7D-97E3-4282-A593-164AD0EFCD93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088FDE7D-97E3-4282-A593-164AD0EFCD93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F78C12BA-4B62-4FBF-A753-D33AC61CDBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F78C12BA-4B62-4FBF-A753-D33AC61CDBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F78C12BA-4B62-4FBF-A753-D33AC61CDBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F78C12BA-4B62-4FBF-A753-D33AC61CDBF7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2365D7CC-6C7B-4988-87CC-3773D431E143}
+	EndGlobalSection
+EndGlobal

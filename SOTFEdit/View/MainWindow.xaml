@@ -1,0 +1,275 @@
+﻿<mah:MetroWindow x:Class="SOTFEdit.View.MainWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:viewModel="clr-namespace:SOTFEdit.ViewModel"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 xmlns:st="http://schemas.spicytaco.io/"
+                 xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+                 xmlns:zoomControl="clr-namespace:ZoomControl;assembly=ZoomControl"
+                 mc:Ignorable="d"
+                 SaveWindowPosition="True"
+                 AllowDrop="True"
+                 DragEnter="MainWindow_OnDragEnter"
+                 Drop="MainWindow_OnDrop"
+                 WindowStartupLocation="CenterScreen"
+                 Title="Sons of the Forest Savegame Editor" Height="850" Width="1380"
+                 TitleCharacterCasing="Normal"
+                 d:DataContext="{d:DesignInstance viewModel:MainViewModel}"
+                 WindowButtonCommandsOverlayBehavior="Never"
+                 PreviewKeyDown="MainWindow_OnPreviewKeyDown"
+                 WindowTransitionsEnabled="False">
+    <Window.Resources>
+        <infrastructure:ZoomHandler x:Key="ZoomHandler" />
+    </Window.Resources>
+    <mah:MetroWindow.Flyouts>
+        <mah:FlyoutsControl>
+            <mah:Flyout x:Name="MapFlyout" Header="{infrastructure:Translate 'windows.main.map'}" Position="Right"
+                        Width="400">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <zoomControl:ZoomControl x:Name="ZoomCtrl" Mode="Fill" MaxZoom="2"
+                                             Zoom="{Binding Zoom, Source={StaticResource ZoomHandler}, Mode=OneWayToSource}">
+                        <Grid>
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/map/bright.jpg"
+                                   Width="4096"
+                                   Height="4096" />
+                            <Canvas Width="4096" Height="4096">
+                                <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/crosshair.png"
+                                       Width="32"
+                                       Height="32"
+                                       Canvas.Top="{Binding PinTop}" Canvas.Left="{Binding PinLeft}">
+                                    <Image.RenderTransform>
+                                        <ScaleTransform
+                                            ScaleX="{Binding ZoomInverse, Source={StaticResource ZoomHandler}}"
+                                            ScaleY="{Binding ZoomInverse, Source={StaticResource ZoomHandler}}" />
+                                    </Image.RenderTransform>
+                                    <Image.RenderTransformOrigin>
+                                        <Point X="0.5" Y="0.5" />
+                                    </Image.RenderTransformOrigin>
+                                </Image>
+                            </Canvas>
+                        </Grid>
+                    </zoomControl:ZoomControl>
+                    <st:AutoGrid Grid.Row="1" Rows="Auto" Columns="Auto,*" ChildMargin="3" Orientation="Horizontal"
+                                 Margin="8" ChildHorizontalAlignment="Left" ChildVerticalAlignment="Center">
+                        <Label Content="{infrastructure:Translate 'generic.position'}" />
+                        <TextBox IsReadOnly="True" IsReadOnlyCaretVisible="False"
+                                 Text="{Binding PinPos.Printable, Mode=OneWay, FallbackValue='???'}" />
+                    </st:AutoGrid>
+                </Grid>
+            </mah:Flyout>
+        </mah:FlyoutsControl>
+    </mah:MetroWindow.Flyouts>
+    <st:AutoGrid Rows="Auto,*" Columns="*">
+        <Border BorderThickness="0 0 0 1" BorderBrush="Black">
+            <Menu Background="{DynamicResource MahApps.Brushes.MenuItem.Background}" Padding="3">
+                <MenuItem Header="{infrastructure:Translate 'menu.file.text'}">
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.openSavegame'}"
+                              Command="{Binding SelectSavegameCommand}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="FolderOpenSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{Binding LastSaveGameMenuItem}" Command="{Binding OpenLastSavegameCommand}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="FileSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.save'}"
+                              Command="{Binding SaveChangesCommand}" InputGestureText="Ctrl+S">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="SaveSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.reloadCurrentSavegame'}"
+                              Command="{Binding ReloadSavegameCommand}"
+                              InputGestureText="F5">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="SyncSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.openSavegameDirInExplorer'}"
+                              Command="{Binding OpenSavegameDirCommand}" />
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.restoreFromBackup.text'}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="TrashRestoreSolid" />
+                        </MenuItem.Icon>
+                        <MenuItem Header="{infrastructure:Translate 'menu.file.restoreFromBackup.fromOldestBackup'}"
+                                  Command="{Binding RestoreBackupsCommand}"
+                                  CommandParameter="false" />
+                        <MenuItem Header="{infrastructure:Translate 'menu.file.restoreFromBackup.fromNewestBackup'}"
+                                  Command="{Binding RestoreBackupsCommand}"
+                                  CommandParameter="true" />
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.deleteAllBackups'}"
+                              Command="{Binding DeleteBackupsCommand}" />
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.settings'}"
+                              Command="{Binding ChangeSettingsCommand}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="CogSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.file.exit'}"
+                              Command="{Binding ExitApplicationCommand}" InputGestureText="Ctrl+Q">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="DoorOpenSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{infrastructure:Translate 'menu.tools.text'}">
+                    <MenuItem
+                        Command="{Binding RegrowTreesCommand}"
+                        Header="{infrastructure:Translate 'menu.tools.regrowTrees'}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="TreeSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.fires.text'}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.fires.tooltip'}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="FireSolid" />
+                        </MenuItem.Icon>
+                        <MenuItem Header="{infrastructure:Translate 'menu.tools.eternalFires.text'}"
+                                  ToolTip="{infrastructure:Translate 'menu.tools.eternalFires.tooltip'}"
+                                  Command="{Binding EternalFiresCommand}" />
+                        <MenuItem Header="{infrastructure:Translate 'menu.tools.resetFires.text'}"
+                                  ToolTip="{infrastructure:Translate 'menu.tools.resetFires.tooltip'}"
+                                  Command="{Binding ResetFiresCommand}" />
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.resetStructureDamage.text'}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.resetStructureDamage.tooltip'}"
+                              Command="{Binding ResetStructureDamageCommand}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="HouseDamageSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.cloneWorldObjects.text'}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.cloneWorldObjects.tooltip'}"
+                              Command="{Binding TeleportWorldItemCommand}" />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.modifyConsumedItems.text'}"
+                              Command="{Binding ModifyConsumedItemsCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.modifyConsumedItems.tooltip'}" />
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.resetCannibalAngerLevel.text'}"
+                              Command="{Binding ResetCannibalAngerCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.resetCannibalAngerLevel.tooltip'}" />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.resetContainers.text'}"
+                              Command="{Binding ResetContainersCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.resetContainers.tooltip'}" />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.resetTraps.text'}"
+                              Command="{Binding ResetTrapsCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.resetTraps.tooltip'}" />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.unlocks.text'}"
+                              Command="{Binding UnlocksCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.unlocks.tooltip'}" />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.setToEndgame.text'}"
+                              Command="{Binding SetToEndgameCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.setToEndgame.tooltip'}" />
+                    <MenuItem Header="{infrastructure:Translate 'menu.tools.itemPlater.text'}"
+                              Command="{Binding ItemPlaterCommand}"
+                              ToolTip="{infrastructure:Translate 'menu.tools.itemPlater.tooltip'}" />
+                </MenuItem>
+                <MenuItem Header="{infrastructure:Translate 'menu.tools.map.text'}"
+                          Command="{Binding OpenMapCommand}"
+                          ToolTip="{infrastructure:Translate 'menu.tools.map.tooltip'}" />
+                <MenuItem Header="{infrastructure:Translate 'menu.companion.text'}">
+                    <MenuItem Command="{Binding CompanionConnectCommand}" Header="{Binding CompanionConnectMenuText}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="PlugSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Command="{Binding CompanionSetupCommand}"
+                              Header="{infrastructure:Translate 'menu.companion.setup'}">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="CogSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{infrastructure:Translate 'menu.help.text'}">
+                    <MenuItem Header="{infrastructure:Translate 'menu.help.links.text'}">
+                        <MenuItem Header="{infrastructure:Translate 'menu.help.links.githubProject'}"
+                                  Command="{Binding OpenUrlCommand}"
+                                  CommandParameter="https://github.com/codengine/SOTFEdit">
+                            <MenuItem.Icon>
+                                <iconPacks:FontAwesome Kind="GithubBrands" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="{infrastructure:Translate 'menu.help.links.discord'}"
+                                  Command="{Binding OpenUrlCommand}"
+                                  CommandParameter="https://discord.gg/867UDYvvqE">
+                            <MenuItem.Icon>
+                                <iconPacks:FontAwesome Kind="DiscordBrands" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <MenuItem Header="{infrastructure:Translate 'menu.help.links.downloadLatestVersion'}"
+                                  Command="{Binding OpenUrlCommand}"
+                                  CommandParameter="https://github.com/codengine/SOTFEdit/releases">
+                            <MenuItem.Icon>
+                                <iconPacks:FontAwesome Kind="DownloadSolid" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                        <Separator />
+                        <MenuItem Header="{infrastructure:Translate 'menu.help.links.nexusMods'}"
+                                  Command="{Binding OpenUrlCommand}"
+                                  CommandParameter="https://www.nexusmods.com/sonsoftheforest/users/127549423?tab=user+files" />
+                        <MenuItem Header="{infrastructure:Translate 'menu.help.links.thunderstoreIo'}"
+                                  Command="{Binding OpenUrlCommand}"
+                                  CommandParameter="https://thunderstore.io/c/sons-of-the-forest/p/codengine/" />
+                        <MenuItem Header="sotf-mods.com"
+                                  Command="{Binding OpenUrlCommand}"
+                                  CommandParameter="https://sotf-mods.com/profile/codengine" />
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.help.updates.text'}">
+                        <MenuItem Header="{infrastructure:Translate 'menu.help.updates.checkNow'}"
+                                  Command="{Binding CheckForUpdatesCommand}" />
+                        <CheckBox IsChecked="{Binding CheckVersionOnStartup}"
+                                  Content="{infrastructure:Translate 'menu.help.updates.checkOnStartup'}" />
+                    </MenuItem>
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.help.readme'}" Click="OpenReadme_Click">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="FileAltSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.help.changelog'}" Click="OpenChangelog_Click">
+                        <MenuItem.Icon>
+                            <iconPacks:FontAwesome Kind="ScrollSolid" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="{infrastructure:Translate 'menu.help.translations'}"
+                              Click="OpenTranslations_Click" />
+                    <Separator />
+                    <MenuItem Header="{infrastructure:Translate 'menu.help.about'}" Click="OpenAbout_OnClick" />
+                </MenuItem>
+            </Menu>
+        </Border>
+        <TabControl SelectedItem="{Binding SelectedTab}" Margin="15 0 15 15" IsEnabled="{Binding CanEditTabs}" mah:HeaderedControlHelper.HeaderFontSize="16" mah:HeaderedControlHelper.HeaderFontFamily="Noto Sans SC Black" >
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.player'}"
+                     Content="{Binding PlayerPage}"/>
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.inventory'}"
+                     Content="{Binding InventoryPage}" />
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.storage'}"
+                     Content="{Binding StoragePage}" />
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.followers'}"
+                     Content="{Binding FollowersPage}" />
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.game'}" Content="{Binding GamePage}" />
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.npcs'}" Content="{Binding NpcsPage}" />
+            <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.structures'}"
+                     Content="{Binding StructuresPage}" />
+        </TabControl>
+    </st:AutoGrid>
+</mah:MetroWindow>

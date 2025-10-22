@@ -1,0 +1,279 @@
+﻿<mah:MetroWindow x:Class="SOTFEdit.View.EditActorWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:viewModel="clr-namespace:SOTFEdit.ViewModel"
+                 xmlns:converters="clr-namespace:SOTFEdit.Infrastructure.Converters"
+                 xmlns:actors="clr-namespace:SOTFEdit.Model.Actors"
+                 xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+                 xmlns:view="clr-namespace:SOTFEdit.View"
+                 mc:Ignorable="d"
+                 PreviewKeyDown="EditActorWindow_OnPreviewKeyDown"
+                 Title="{Binding Actor.PrintableTitle}"
+                 WindowTransitionsEnabled="False"
+                 WindowStartupLocation="CenterOwner"
+                 ShowMaxRestoreButton="False"
+                 IsMaxRestoreButtonEnabled="False"
+                 ShowMinButton="False"
+                 IsMinButtonEnabled="False"
+                 ResizeMode="NoResize"
+                 HorizontalContentAlignment="Left"
+                 VerticalAlignment="Top"
+                 SizeToContent="WidthAndHeight"
+                 d:DataContext="{d:DesignInstance viewModel:EditActorViewModel}"
+                 TitleCharacterCasing="Normal">
+    <mah:MetroWindow.Resources>
+        <Style x:Key="LabelStyle" TargetType="{x:Type TextBlock}"
+               BasedOn="{StaticResource MahApps.Styles.TextBlock}">
+            <Setter Property="Margin" Value="0 0 8 0" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
+        <converters:StringToBooleanConverter x:Key="StringToBooleanConverter" />
+        <converters:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
+    </mah:MetroWindow.Resources>
+    <Grid VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <GroupBox Header="{infrastructure:Translate 'actors.headers.info'}" Padding="10" Margin="0 0 10 0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image Source="{Binding Actor.ActorImage}" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       Margin="0 0 0 10" />
+                <Grid Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 0 0 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="{infrastructure:Translate 'generic.name'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="0" Grid.Column="1"
+                               Text="{Binding Actor.ActorType.Name, FallbackValue='???'}">
+                        <TextBlock.Foreground>
+                            <SolidColorBrush Color="{Binding Actor.ActorColor}" />
+                        </TextBlock.Foreground>
+                    </TextBlock>
+                    <TextBlock Grid.Row="1" Grid.Column="0"
+                               Text="{infrastructure:Translate 'actors.details.classification'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="1" Grid.Column="1"
+                               Text="{Binding Actor.ActorType.PrintableClassification, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="{infrastructure:Translate 'actors.details.gender'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="2" Grid.Column="1"
+                               Text="{Binding Actor.ActorType.PrintableGender, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="3" Grid.Column="0"
+                               Text="{infrastructure:Translate 'actors.details.lastVisitedTime'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="3" Grid.Column="1"
+                               Text="{Binding Actor.LastVisitTime, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="4" Grid.Column="0" Text="SpawnerId"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="4" Grid.Column="1"
+                               Text="{Binding Actor.SpawnerId, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="5" Grid.Column="0"
+                               Text="{infrastructure:Translate 'actors.details.spawnedCount'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="5" Grid.Column="1"
+                               Text="{Binding Actor.Spawner.Count, FallbackValue='???'}" />
+
+                    <TextBlock Grid.Row="6" Grid.Column="0"
+                               Text="{infrastructure:Translate 'actors.details.lastSpawnTime'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="6" Grid.Column="1"
+                               Text="{Binding Actor.Spawner.LastSpawnTime, FallbackValue='???'}" />
+
+                    <TextBlock Grid.Row="7" Grid.Column="0" Text="{infrastructure:Translate 'actors.details.state'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="7" Grid.Column="1"
+                               Text="{Binding Actor.StatePrintable, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="8" Grid.Column="0" Text="VariationId"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="8" Grid.Column="1"
+                               Text="{Binding Actor.VariationId, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="9" Grid.Column="0" Text="UniqueId"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="9" Grid.Column="1"
+                               Text="{Binding Actor.UniqueId, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="10" Grid.Column="0" Text="OutfitId"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="10" Grid.Column="1"
+                               Text="{Binding Actor.OutfitId, FallbackValue='???'}" />
+                    <TextBlock Grid.Row="11" Grid.Column="0" Text="{infrastructure:Translate 'actors.details.area'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="11" Grid.Column="1" Text="{Binding Actor.Position.Area.Name}"
+                               VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="12" Grid.Column="0" Text="{infrastructure:Translate 'generic.position'}"
+                               Style="{StaticResource LabelStyle}" />
+                    <TextBlock Grid.Row="12" Grid.Column="1" Text="{Binding Actor.Position.PrintableShort}"
+                               TextWrapping="Wrap" VerticalAlignment="Top" />
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="0 0 10 0" Width="300" VerticalAlignment="Top"
+              HorizontalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <view:InfluenceContainer InfluencesTarget="{Binding Influences}" AllInfluences="{Binding AllInfluences}" />
+            <GroupBox Grid.Row="1" Header="{infrastructure:Translate 'actors.headers.killStatistics'}"
+                      VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                      Padding="10">
+                <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource LabelStyle}"
+                               Text="{infrastructure:Translate 'actors.details.killedByPlayer'}" />
+                    <TextBlock Grid.Column="1" Text="{Binding Actor.KillStats.PlayerKilled, FallbackValue='0'}" />
+                </Grid>
+            </GroupBox>
+        </Grid>
+        <GroupBox Grid.Column="2" Width="400" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                  Header="{infrastructure:Translate 'actors.headers.modifications'}"
+                  Padding="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <GroupBox Grid.Row="0" Header="{infrastructure:Translate 'actors.headers.selection'}" Padding="10"
+                          Margin="0 0 0 10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                            <RadioButton GroupName="ModificationMode" Margin="0 0 8 0"
+                                         IsChecked="{Binding ModificationMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='{x:Static actors:ActorModificationMode.Modify}'}"
+                                         Content="{infrastructure:Translate 'actors.modificationMode.Modify'}" />
+                            <RadioButton GroupName="ModificationMode"
+                                         IsChecked="{Binding ModificationMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='{x:Static actors:ActorModificationMode.Remove}'}"
+                                         Content="{infrastructure:Translate 'actors.modificationMode.Remove'}" />
+                        </StackPanel>
+                        <ComboBox Grid.Row="1" ItemsSource="{Binding AllActorSelections}"
+                                  SelectedValue="{Binding ActorSelection}" DisplayMemberPath="Title"
+                                  SelectedValuePath="Value" Margin="0 0 0 10" />
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 0 0 10">
+                            <CheckBox Content="{infrastructure:Translate 'actors.modificationOptions.skipKelvin'}"
+                                      IsChecked="{Binding SkipKelvin}" Margin="0 0 8 0" />
+                            <CheckBox Content="{infrastructure:Translate 'actors.modificationOptions.skipVirginia'}"
+                                      IsChecked="{Binding SkipVirginia}" />
+                        </StackPanel>
+                        <CheckBox Grid.Row="3" IsChecked="{Binding OnlyInSameAreaAsActor}"
+                                  Content="{infrastructure:Translate 'actors.modificationOptions.onlyInSameAreaAsActor'}" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="1" Header="{infrastructure:Translate 'actors.headers.stats'}" Padding="10"
+                          Margin="0 0 0 10"
+                          Visibility="{Binding ModificationMode, Converter={StaticResource StringToVisibilityConverter}, ConverterParameter='{x:Static actors:ActorModificationMode.Modify}'}">
+                    <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource LabelStyle}"
+                                   Text="{infrastructure:Translate 'actors.stats.energy'}" />
+                        <mah:NumericUpDown Margin="0 0 10 0" Grid.Row="0" Grid.Column="1" Minimum="1" Maximum="100"
+                                           NumericInputMode="Numbers" Interval="10"
+                                           Value="{Binding ModifyOptions.ActorEnergy, UpdateSourceTrigger=PropertyChanged}" />
+                        <CheckBox Grid.Row="0" Grid.Column="2" IsChecked="{Binding ModifyOptions.UpdateEnergy}"
+                                  Content="{infrastructure:Translate 'generic.update'}" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}"
+                                   Text="{infrastructure:Translate 'actors.stats.health'}" />
+                        <mah:NumericUpDown Margin="0 0 10 0" Grid.Row="1" Grid.Column="1" Minimum="1" Maximum="99999"
+                                           NumericInputMode="Numbers" Interval="10"
+                                           Value="{Binding ModifyOptions.ActorHealth, UpdateSourceTrigger=PropertyChanged}" />
+                        <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding ModifyOptions.UpdateHealth}"
+                                  Content="{infrastructure:Translate 'generic.update'}" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Grid.Row="2" Header="{infrastructure:Translate 'actors.headers.modificationOptions'}"
+                          Padding="10" Margin="0 0 0 10"
+                          Visibility="{Binding ModificationMode, Converter={StaticResource StringToVisibilityConverter}, ConverterParameter='{x:Static actors:ActorModificationMode.Modify}'}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Margin="0 0 8 0">
+                            <CheckBox
+                                Content="{infrastructure:Translate 'actors.modificationOptions.removeSpawner.text'}"
+                                IsChecked="{Binding ModifyOptions.RemoveSpawner}"
+                                ToolTip="{infrastructure:Translate 'actors.modificationOptions.removeSpawner.tooltip'}"
+                                Margin="0 0 0 8" />
+                            <CheckBox
+                                Content="{infrastructure:Translate 'actors.modificationOptions.updateInfluences'}"
+                                Margin="0 0 0 8"
+                                IsChecked="{Binding ModifyOptions.UpdateInfluences}" />
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{StaticResource LabelStyle}"
+                                           Text="{infrastructure:Translate 'actors.modificationOptions.replaceType'}" />
+                                <ComboBox Grid.Row="1" SelectedItem="{Binding ModifyOptions.ReplaceType}"
+                                          ItemsSource="{Binding AllActorTypes}" DisplayMemberPath="Name" />
+                            </Grid>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock TextWrapping="Wrap" Margin="0 0 0 8"
+                                       Text="{infrastructure:Translate 'actors.modificationOptions.teleport.disclaimer'}" />
+                            <TextBlock Margin="0 0 0 8"
+                                       Text="{infrastructure:Translate 'actors.modificationOptions.teleport.teleportLabel'}" />
+                            <RadioButton GroupName="TeleportMode" Margin="0 0 0 8"
+                                         IsChecked="{Binding ModifyOptions.TeleportMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=''}"
+                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.none'}" />
+                            <RadioButton GroupName="TeleportMode" Margin="0 0 0 8"
+                                         IsChecked="{Binding ModifyOptions.TeleportMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='PlayerToNpc'}"
+                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.playerToNpc'}" />
+                            <RadioButton GroupName="TeleportMode" Margin="0 0 0 8"
+                                         IsChecked="{Binding ModifyOptions.TeleportMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='NpcToPlayer'}"
+                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.npcToPlayer'}" />
+                        </StackPanel>
+                    </Grid>
+                </GroupBox>
+                <Button Grid.Row="3" Padding="10" Background="{StaticResource MahApps.Brushes.Accent}"
+                        Command="{Binding SaveCommand}" Content="{infrastructure:Translate 'generic.save'}" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</mah:MetroWindow>

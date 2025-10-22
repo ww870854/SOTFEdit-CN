@@ -1,0 +1,301 @@
+﻿<UserControl x:Class="SOTFEdit.View.FollowersPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:SOTFEdit.ViewModel"
+             xmlns:model="clr-namespace:SOTFEdit.Model"
+             xmlns:actors="clr-namespace:SOTFEdit.Model.Actors"
+             xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+             xmlns:st="http://schemas.spicytaco.io/"
+             xmlns:view="clr-namespace:SOTFEdit.View"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModel:FollowerPageViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="FollowerSliderStyle" TargetType="{x:Type Slider}"
+                   BasedOn="{StaticResource MahApps.Styles.Slider.Win10}">
+                <Setter Property="TickFrequency" Value="1" />
+                <Setter Property="AutoToolTipPlacement" Value="BottomRight" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
+                <Setter Property="Margin" Value="0 0 0 10" />
+            </Style>
+            <Style x:Key="FollowerCheckboxStyle" TargetType="CheckBox"
+                   BasedOn="{StaticResource MahApps.Styles.CheckBox}">
+                <Setter Property="Margin" Value="0  0 10 0" />
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="{infrastructure:Translate 'actors.types.9'}" Margin="0 0 5 0" VerticalAlignment="Top">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <st:AutoGrid VerticalAlignment="Top" HorizontalAlignment="Stretch" Columns="Auto,*">
+                    <StackPanel VerticalAlignment="Top" Margin="10">
+                        <Image Source="pack://application:,,,/SOTFEdit;component/images/kv.jpg" Width="197"
+                               Height="246"
+                               Margin="0 0 0 10" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToPlayerCommand}"
+                                CommandParameter="{Binding KelvinState}"
+                                Content="{infrastructure:Translate 'followers.buttons.moveToPlayer'}" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToVirginiaCommand}"
+                                CommandParameter="{Binding KelvinState}"
+                                Content="{infrastructure:Translate 'followers.buttons.moveToVirginia'}" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding ReviveCommand}"
+                                CommandParameter="{Binding KelvinState}"
+                                ToolTip="{infrastructure:Translate 'followers.reviveTooltip'}"
+                                Content="{infrastructure:Translate 'followers.buttons.revive'}" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding SpawnCommand}"
+                                CommandParameter="{Binding KelvinState}"
+                                Content="{infrastructure:Translate 'followers.buttons.spawn'}" />
+                    </StackPanel>
+                    <st:AutoGrid Columns="Auto,*" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                 Margin="10" ChildMargin="4" ChildVerticalAlignment="Center">
+                        <Label Content="{infrastructure:Translate 'generic.name'}" />
+                        <TextBlock Text="{infrastructure:Translate 'actors.types.9'}" />
+                        <Label Content="{infrastructure:Translate 'followers.details.uniqueId'}" />
+                        <TextBlock Text="{Binding KelvinState.UniqueId}" />
+                        <Label Content="{infrastructure:Translate 'followers.details.status'}" />
+                        <TextBlock Text="{Binding KelvinState.Status}" />
+                        <Label Content="{infrastructure:Translate 'generic.position'}" />
+                        <st:AutoGrid Columns="Auto,*" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/red-pin.png" Width="32"
+                                   Height="32"
+                                   Cursor="Hand"
+                                   VerticalAlignment="Center">
+                                <Image.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding OpenMapAtFollowerCommand}"
+                                                  CommandParameter="{Binding KelvinState.Pos}" />
+                                </Image.InputBindings>
+                            </Image>
+                            <Label VerticalAlignment="Center" Content="{Binding KelvinState.Pos.Printable}" />
+                        </st:AutoGrid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Heal.png" Width="32"
+                                   Height="32"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.health'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Health, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'actors.stats.anger'}" />
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Anger, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'actors.stats.fear'}" />
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Fear, UpdateSourceTrigger=PropertyChanged}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Fullness.png"
+                                   Width="32" Height="32"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.fullness'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Fullness, UpdateSourceTrigger=PropertyChanged}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Hydration.png"
+                                   Width="32" Height="32"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.hydration'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Hydration, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'actors.stats.energy'}" />
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Energy, UpdateSourceTrigger=PropertyChanged}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/TrustedPlayer.png"
+                                   Width="32"
+                                   Height="32" VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.affection'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}"
+                                Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding KelvinState.Affection, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'followers.equipmentLabel'}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <ItemsControl ItemsSource="{Binding KelvinState.Inventory}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type actors:EquippableItem}">
+                                        <CheckBox Style="{StaticResource FollowerCheckboxStyle}"
+                                                  Content="{Binding Name, Mode=OneTime}"
+                                                  IsChecked="{Binding Selected}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                        <Label Content="{infrastructure:Translate 'followers.outfitLabel'}" />
+                        <ComboBox ItemsSource="{Binding KelvinState.Outfits}"
+                                  SelectedItem="{Binding KelvinState.Outfit}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type model:Outfit}">
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Button HorizontalAlignment="Center" Margin="0 10 0 10" Padding="10" Grid.ColumnSpan="2"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Command="{Binding FillAllBarsCommand}" CommandParameter="{Binding KelvinState}"
+                                Content="{infrastructure:Translate 'followers.buttons.fillAllBars'}" />
+                    </st:AutoGrid>
+                    <view:InfluenceContainer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ShowDisclaimer="False"
+                                             InfluencesTarget="{Binding KelvinState.Influences}"
+                                             AllInfluences="{Binding AllInfluences}" />
+                </st:AutoGrid>
+            </ScrollViewer>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="{infrastructure:Translate 'actors.types.10'}" Margin="5 0 0 0"
+                  VerticalAlignment="Top">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <st:AutoGrid VerticalAlignment="Top" HorizontalAlignment="Stretch" Columns="Auto,*">
+                    <StackPanel VerticalAlignment="Top" Margin="10">
+                        <Image Source="pack://application:,,,/SOTFEdit;component/images/vg.jpg" Width="197"
+                               Height="246"
+                               Margin="0 0 0 10" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToPlayerCommand}"
+                                CommandParameter="{Binding VirginiaState}"
+                                Content="{infrastructure:Translate 'followers.buttons.moveToPlayer'}" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToKelvinCommand}"
+                                CommandParameter="{Binding VirginiaState}"
+                                Content="{infrastructure:Translate 'followers.buttons.moveToKelvin'}" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding ReviveCommand}"
+                                CommandParameter="{Binding VirginiaState}"
+                                ToolTip="{infrastructure:Translate 'followers.reviveTooltip'}"
+                                Content="{infrastructure:Translate 'followers.buttons.revive'}" />
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding SpawnCommand}"
+                                CommandParameter="{Binding VirginiaState}"
+                                Content="{infrastructure:Translate 'followers.buttons.spawn'}" />
+                    </StackPanel>
+                    <st:AutoGrid Columns="Auto,*" VerticalAlignment="Top" HorizontalAlignment="Stretch"
+                                 Margin="10" ChildMargin="4" ChildVerticalAlignment="Center">
+                        <Label Content="{infrastructure:Translate 'generic.name'}" />
+                        <TextBlock Text="{infrastructure:Translate 'actors.types.10'}" />
+                        <Label Content="{infrastructure:Translate 'followers.details.uniqueId'}" />
+                        <TextBlock Text="{Binding VirginiaState.UniqueId}" />
+                        <Label Content="{infrastructure:Translate 'followers.details.status'}" />
+                        <TextBlock Text="{Binding VirginiaState.Status}" />
+                        <Label Content="{infrastructure:Translate 'generic.position'}" />
+                        <st:AutoGrid Columns="Auto,*" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/red-pin.png" Width="32"
+                                   Height="32"
+                                   Cursor="Hand"
+                                   VerticalAlignment="Center">
+                                <Image.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding OpenMapAtFollowerCommand}"
+                                                  CommandParameter="{Binding VirginiaState.Pos}" />
+                                </Image.InputBindings>
+                            </Image>
+                            <Label VerticalAlignment="Center" Content="{Binding VirginiaState.Pos.Printable}" />
+                        </st:AutoGrid>
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Heal.png" Width="32"
+                                   Height="32"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.health'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Health, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'actors.stats.anger'}" />
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Anger, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'actors.stats.fear'}" />
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Fear, UpdateSourceTrigger=PropertyChanged}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Fullness.png"
+                                   Width="32" Height="32"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.fullness'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Fullness, UpdateSourceTrigger=PropertyChanged}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Hydration.png"
+                                   Width="32" Height="32"
+                                   VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.hydration'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Hydration, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'actors.stats.energy'}" />
+                        <Slider Style="{StaticResource FollowerSliderStyle}" Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Energy, UpdateSourceTrigger=PropertyChanged}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/TrustedPlayer.png"
+                                   Width="32"
+                                   Height="32" VerticalAlignment="Center" />
+                            <Label Content="{infrastructure:Translate 'actors.stats.affection'}"
+                                   VerticalAlignment="Center" />
+                        </StackPanel>
+                        <Slider Style="{StaticResource FollowerSliderStyle}"
+                                Minimum="0.0"
+                                Maximum="100"
+                                Value="{Binding VirginiaState.Affection, UpdateSourceTrigger=PropertyChanged}" />
+                        <Label Content="{infrastructure:Translate 'followers.equipmentLabel'}" />
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <ItemsControl ItemsSource="{Binding VirginiaState.Inventory}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" VerticalAlignment="Center" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate DataType="{x:Type actors:EquippableItem}">
+                                        <CheckBox Style="{StaticResource FollowerCheckboxStyle}"
+                                                  Content="{Binding Name, Mode=OneTime}"
+                                                  IsChecked="{Binding Selected}" />
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </StackPanel>
+                        <Label Content="{infrastructure:Translate 'followers.outfitLabel'}" />
+                        <ComboBox ItemsSource="{Binding VirginiaState.Outfits}"
+                                  SelectedItem="{Binding VirginiaState.Outfit}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type model:Outfit}">
+                                    <TextBlock Text="{Binding Name, Mode=OneTime}" />
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <Button HorizontalAlignment="Center" Margin="0 10 0 10" Padding="10" Grid.ColumnSpan="2"
+                                Background="{DynamicResource MahApps.Brushes.Accent}"
+                                Command="{Binding FillAllBarsCommand}" CommandParameter="{Binding VirginiaState}"
+                                Content="{infrastructure:Translate 'followers.buttons.fillAllBars'}" />
+                    </st:AutoGrid>
+                    <view:InfluenceContainer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ShowDisclaimer="False"
+                                             InfluencesTarget="{Binding VirginiaState.Influences}"
+                                             AllInfluences="{Binding AllInfluences}" />
+                </st:AutoGrid>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,42 @@
+name: "Tag Release"
+
+on:
+  push:
+    tags:
+      - 'v*'           # Push events to every tag not containing /
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.0.x'
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1.1        
+      - name: Restore NuGet packages
+        run: dotnet restore
+      - name: Clean build directories
+        run: dotnet clean --configuration Release        
+      - name: Run tests
+        run: dotnet test --no-restore --verbosity normal # Run tests
+      - name: Build project
+        run: dotnet publish ${{ github.event.repository.name }} --configuration Release --no-restore --framework net6.0-windows --maxcpucount:1 # Build the app in Release mode
+      - name: Create artifacts directory
+        run: mkdir -p artifacts
+      - name: Zip artifacts with PowerShell script
+        shell: pwsh # Use PowerShell as the shell
+        run: |
+          # Zip the output files with the assembly name and version
+          Compress-Archive -Path ${{ github.workspace }}\${{ github.event.repository.name }}\bin\Release\net6.0-windows\publish\* -DestinationPath ${{ github.workspace }}\artifacts\${{ github.event.repository.name }}-${{ github.ref_name }}.zip
+      - name: Create Release
+        id: create_release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "artifacts/*"
+          omitBody: true
+          makeLatest: true
+          generateReleaseNotes: true

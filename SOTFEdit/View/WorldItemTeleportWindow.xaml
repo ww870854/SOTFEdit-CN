@@ -1,0 +1,50 @@
+﻿<mah:MetroWindow x:Class="SOTFEdit.View.WorldItemTeleportWindow"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+                 xmlns:viewModel="clr-namespace:SOTFEdit.ViewModel"
+                 xmlns:st="http://schemas.spicytaco.io/"
+                 xmlns:infrastructure="clr-namespace:SOTFEdit.Infrastructure"
+                 xmlns:local="clr-namespace:SOTFEdit.Model.WorldItem"
+                 mc:Ignorable="d"
+                 Title="{infrastructure:Translate 'windows.worldItemCloner.title'}" MinWidth="300"
+                 WindowStartupLocation="CenterOwner"
+                 WindowTransitionsEnabled="False"
+                 ResizeMode="NoResize"
+                 SizeToContent="WidthAndHeight"
+                 PreviewKeyDown="WorldItemTeleportWindow_OnPreviewKeyDown"
+                 ShowMaxRestoreButton="False"
+                 IsMaxRestoreButtonEnabled="False"
+                 ShowMinButton="False"
+                 IsMinButtonEnabled="False"
+                 d:DataContext="{d:DesignInstance viewModel:WorldItemTeleporterViewModel}"
+                 TitleCharacterCasing="Normal">
+    <st:AutoGrid Margin="20" Columns="Auto,*" Rows="Auto" VerticalAlignment="Top"
+                 HorizontalAlignment="Stretch" ChildMargin="3">
+        <st:AutoGrid.Resources>
+
+        </st:AutoGrid.Resources>
+        <ComboBox Grid.ColumnSpan="2"
+                  SelectedValue="{Binding SelectedWorldItemType, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValuePath="Tag">
+            <ComboBox.Items>
+                <ComboBoxItem Tag="{x:Static local:WorldItemType.HangGlider}"
+                              Content="{infrastructure:Translate 'worldItemTypes.HangGlider' }" />
+                <ComboBoxItem Tag="{x:Static local:WorldItemType.KnightV}"
+                              Content="{infrastructure:Translate 'worldItemTypes.KnightV' }" />
+                <ComboBoxItem Tag="{x:Static local:WorldItemType.Radio}"
+                              Content="{infrastructure:Translate 'worldItemTypes.Radio' }" />
+            </ComboBox.Items>
+        </ComboBox>
+        <Button Command="{Binding RemoveAllOfThisTypeCommand}"
+                Background="DarkRed" Grid.ColumnSpan="2"
+                ToolTip="{infrastructure:Translate 'windows.worldItemCloner.buttons.removeAllCopies.tooltip'}"
+                Content="{infrastructure:Translate 'windows.worldItemCloner.buttons.removeAllCopies.text'}" />
+        <Button Command="{Binding CloneObjectAtPlayerPosCommand}"
+                Background="{DynamicResource MahApps.Brushes.Accent}" Grid.ColumnSpan="2"
+                ToolTip="{infrastructure:Translate 'windows.worldItemCloner.buttons.cloneAtPlayerPosition.tooltip'}"
+                Content="{infrastructure:Translate 'windows.worldItemCloner.buttons.cloneAtPlayerPosition.text'}" />
+    </st:AutoGrid>
+</mah:MetroWindow>
