@@ -259,7 +259,7 @@
         </Border>
         <TabControl SelectedItem="{Binding SelectedTab}" Margin="15 0 15 15" IsEnabled="{Binding CanEditTabs}" mah:HeaderedControlHelper.HeaderFontSize="16" mah:HeaderedControlHelper.HeaderFontFamily="Noto Sans SC Black" >
             <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.player'}"
-                     Content="{Binding PlayerPage}"/>
+                     Content="{Binding PlayerPage}" />
             <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.inventory'}"
                      Content="{Binding InventoryPage}" />
             <TabItem Foreground="White" Header="{infrastructure:Translate 'tabs.storage'}"

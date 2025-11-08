@@ -238,31 +238,33 @@
     }
   },
   "companion": {
+    "window": "伙伴连接设置",
+    "set": "设置",
     "address": "IP 地址",
     "connect": "连接",
     "connectionFailed": {
       "text": "尝试连接配套插件失败",
       "textException": "连接配套插件的尝试失败。错误: {0}",
-      "title": "伴侣连接失败"
+      "title": "伙伴连接失败"
     },
     "connectionSuccessful": {
-      "text": "成功连接到伴侣。\n您现在可以使用游戏中的热键、通过地图进行实时远程传输和实时位置跟踪",
-      "title": "连接的伴侣"
+      "text": "成功连接到伙伴。\n您现在可以使用游戏中的热键、通过地图进行实时远程传输和实时位置跟踪",
+      "title": "连接的伙伴"
     },
     "connectTimeout": "连接超时",
     "disconnect": "断开",
     "disconnectFailed": {
-      "text": "尝试断开与此伴侣插件的连接失败",
-      "textException": "尝试断开与伴侣插件的连接失败。错误: {0}",
-      "title": "伴侣断开失败"
+      "text": "尝试断开与此伙伴插件的连接失败",
+      "textException": "尝试断开与伙伴插件的连接失败。错误: {0}",
+      "title": "伙伴断开失败"
     },
     "keepAliveInterval": "停留时间间隔",
     "mapPositionUpdateInterval": "每次更新玩家位置",
     "port": "端口",
     "portHint": "端口 > 1024 需要以管理员身份执行程序和游戏！",
     "readme": "说明",
-    "readme1": "此伴侣为游戏提供了一些附加功能，如游戏内传送、位置跟踪等。\n\n在使用伴侣之前，您必须先进行设置。为此，您必须在游戏中设置两样东西：\n\n- BepInExPack\n- SOTFEdit 伴侣插件\n\n您可以从这里获取它们，然后按照 README 或使用 mod 管理器手动安装：",
-    "readme2": "在两者都设置完毕并启动游戏后，你需要通过菜单连接到伴侣设备。\n\n之后，您在游戏中就有了两个新热键：\n- 在游戏中传送到大部分游戏地点（默认：F8）\n- 创建自定义传送 POI（默认值：F9）\n\n同时，您在地图上的位置也会实时更新。",
+    "readme1": "此助手为游戏提供了一些附加功能，如游戏内传送、位置跟踪等。\n\n在使用助手之前，您必须先进行设置。为此，您必须在游戏中设置两样东西：\n\n- BepInExPack\n- SOTFEdit 助手插件\n\n您可以从这里获取它们，然后按照 README 或使用 mod 管理器手动安装：",
+    "readme2": "在两者都设置完毕并启动游戏后，你需要通过菜单连接到伙伴设备。\n\n之后，您在游戏中就有了两个新热键：\n- 在游戏中传送到大部分游戏地点（默认：F8）\n- 创建自定义传送 POI（默认值：F9）\n\n同时，您在地图上的位置也会实时更新。",
     "settings": "设置",
     "status": {
       "connected": "已连接",
@@ -1077,7 +1079,7 @@
   "menu": {
     "companion": {
       "setup": "设置",
-      "text": "伴侣"
+      "text": "伙伴"
     },
     "file": {
       "deleteAllBackups": "删除所有备份",
@@ -1114,7 +1116,16 @@
         "checkNow": "立即查看",
         "checkOnStartup": "启动时检查",
         "text": "更新"
-      }
+      },
+      "V1": "由codengine创建",
+      "V2": "衷心感谢Gronkh多年来带来的“Influenz”。特别是若没有你直播《The Forest》，我根本不会知道这款游戏的存在。",
+      "V3": "翻译与校对",
+      "V4": " - 波兰语：Mortennif",
+      "V5": " - 德语：Hinterix",
+      "V6": " - 汉语：听丶说",
+      "V7": "支持者与测试者",
+      "V8": " - Mortennif, M2THE49, feydrautha01，听丶说",
+      "V9": "加入我吧"
     },
     "tools": {
       "cloneWorldObjects": {
@@ -1370,7 +1381,7 @@
     }
   },
   "tabs": {
-    "followers": "伴侣",
+    "followers": "伙伴",
     "game": "游戏",
     "inventory": "库存",
     "npcs": "NPC",

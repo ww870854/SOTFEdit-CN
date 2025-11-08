@@ -238,6 +238,8 @@
     }
   },
   "companion": {
+    "window": "Towarzyszący",
+    "set": "Ustawienia",
     "address": "IP/Addres",
     "connect": "Połącz",
     "connectionFailed": {
@@ -263,7 +265,7 @@
     "readme": "Readme",
     "readme1": "Companion dodaje niektóre dodatkowe funkcje do gry, takie jak teleportacja w grze, śledzenie pozycji i wiele innych.\n\nZanim będziesz mógł używać Companiona, musisz najpierw go skonfigurować. Aby to zrobić, musisz skonfigurować dwie rzeczy w swojej grze:\n\n- BepInExPack\n- SOTFEdit Companion Plugin\n\nMożesz je pobrać stąd i zainstalować ręcznie, postępując zgodnie z instrukcjami w README, lub użyć menedżera modów:",
     "readme2": "Po przygotowaniu obydwóch, i włączeniu gry, musisz połączyć do Companion używając menu.\n\nNastępnie, w grze, masz do dyspozycji dwie nowe skróty klawiszowe:\n\n- Teleportacja w grze do większości lokalizacji w grze (Domyślnie: F8)\n- Tworzenie niestandardowego punktu teleportacji POI (Domyślnie: F9)\n\nJednocześnie, Twoja pozycja na mapie będzie na bieżąco aktualizowana.",
-    "settings": "Ustawienia(Settings)",
+    "settings": "Ustawienia",
     "status": {
       "connected": "Połączony",
       "connecting": "Łączenie...",
@@ -481,7 +483,7 @@
     "position": "Pozycja",
     "save": "Zapisz",
     "seconds": "Sekund",
-    "setting": "Ustawienia(Settings)",
+    "setting": "Ustawienia",
     "success": "Sukces",
     "unknown": "Nieznane",
     "update": "Aktualizuj",
@@ -959,10 +961,10 @@
     }
   },
   "languages": {
+    "cn": "Chinese (China)",
     "de": "Niemiecki (German)",
     "en": "Angielski (English)",
-    "pl": "Polski (Polish)",
-    "cn": "chiński (Chinese)"
+    "pl": "Polski (Polish)"
   },
   "map": {
     "actors": "NPC-y",
@@ -1076,7 +1078,7 @@
   },
   "menu": {
     "companion": {
-      "setup": "Konfiguracja(Setup)",
+      "setup": "Konfiguracja",
       "text": "Companion"
     },
     "file": {
@@ -1093,7 +1095,7 @@
         "text": "Odtwórz z backupów"
       },
       "save": "Zapisz",
-      "settings": "Ustawienia(Settings)",
+      "settings": "Ustawienia",
       "text": "Plik"
     },
     "help": {
@@ -1114,7 +1116,16 @@
         "checkNow": "Sprawdź teraz",
         "checkOnStartup": "Sprawdź przy włączeniu",
         "text": "Aktualizacje"
-      }
+      },
+      "V1": "Stworzone przez codengine",
+      "V2": "Wielkie podziękowania dla Gronkha za wieloletnią działalność 'Influenz'. Gdyby nie Twoje transmisje z gry 'The Forest', nigdy nie dowiedziałbym się o tej grze.",
+      "V3": "Tłumaczenia i poprawki",
+      "V4": " - Polski：Mortennif",
+      "V5": " - Niemiecki: Hinterix",
+      "V6": " - Chiński: 听丶说",
+      "V7": "Zwolennicy i testerzy",
+      "V8": " - Mortennif, M2THE49, feydrautha01，听丶说",
+      "V9": "Dołącz do mnie na"
     },
     "tools": {
       "cloneWorldObjects": {
@@ -1540,7 +1551,7 @@
         }
       },
       "theme": "motyw",
-      "title": "Ustawienia(Settings)"
+      "title": "Ustawienia"
     },
     "unhandledException": {
       "applicationVersion": "Wersja Aplikacji",

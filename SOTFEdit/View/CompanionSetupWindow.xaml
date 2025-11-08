@@ -18,7 +18,7 @@
                  TitleCharacterCasing="Normal"
                  mc:Ignorable="d"
                  d:DataContext="{d:DesignInstance viewModel:CompanionSetupWindowViewModel}"
-                 Title="Companion">
+                 Title="{infrastructure:Translate 'companion.window'}">
     <Grid>
         <Grid.Resources>
             <Style x:Key="LinkStyle" TargetType="{x:Type Label}" BasedOn="{StaticResource MahApps.Styles.Label}">
@@ -31,7 +31,7 @@
             <ColumnDefinition Width="420" />
             <ColumnDefinition Width="450" />
         </Grid.ColumnDefinitions>
-        <GroupBox Header="Settings" Padding="8" Margin="8 8 8 8">
+        <GroupBox Header="{infrastructure:Translate 'companion.set'}" Padding="8" Margin="8 8 8 8">
             <st:AutoGrid Columns="Auto,*,Auto" ChildMargin="4">
                 <Label Content="{infrastructure:Translate 'companion.address'}" />
                 <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" />
@@ -57,7 +57,7 @@
                 <Label Grid.ColumnSpan="3" Content="{Binding StatusText}" />
             </st:AutoGrid>
         </GroupBox>
-        <GroupBox Grid.Column="1" Header="Readme" Padding="8" Margin="0 8 8 8">
+        <GroupBox Grid.Column="1" Header="{infrastructure:Translate 'companion.readme'}" Padding="8" Margin="0 8 8 8">
             <st:AutoGrid Columns="*" ChildMargin="4">
                 <TextBlock TextWrapping="Wrap" xml:space="preserve"
                            Text="{infrastructure:Translate 'companion.readme1'}" />

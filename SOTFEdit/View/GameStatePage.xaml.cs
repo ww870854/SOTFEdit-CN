@@ -21,9 +21,4 @@ public partial class GameStatePage
     {
         return _dataContext.Update(savegame);
     }
-
-    private void DataGrid_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
-    {
-
-    }
 }

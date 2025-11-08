@@ -22,7 +22,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <GroupBox Header="{infrastructure:Translate 'game.state.header'}" Padding="10" Margin="0 0 0 10">
-            <DataGrid Height="auto" AutoGenerateColumns="False"
+            <DataGrid Height="Auto" AutoGenerateColumns="False"
                       SelectionMode="Single" ItemsSource="{Binding Settings}" CanUserAddRows="false"
                       CanUserDeleteRows="False">
                 <DataGrid.Columns>
@@ -33,7 +33,7 @@
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
-        <GroupBox Height="auto" Header="{infrastructure:Translate 'game.state.worldObjectStates.header'}" Padding="10" Grid.Row="1">
+        <GroupBox Header="{infrastructure:Translate 'game.state.worldObjectStates.header'}" Padding="10" Grid.Row="1">
             <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
                     <RowDefinition />
@@ -42,7 +42,7 @@
                 <TextBlock Grid.Row="0" Margin="0 0 0 10"
                            Text="{infrastructure:Translate 'game.state.worldObjectStates.disclaimer'}" />
 
-                <DataGrid Height="auto" Grid.Row="1" AutoGenerateColumns="False"
+                <DataGrid Height="Auto" Grid.Row="1" AutoGenerateColumns="False"
                           SelectionMode="Single" ItemsSource="{Binding NamedIntDatas}" CanUserAddRows="false"
                           CanUserDeleteRows="False">
                     <DataGrid.Columns>

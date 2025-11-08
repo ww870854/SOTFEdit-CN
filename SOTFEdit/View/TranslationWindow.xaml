@@ -41,13 +41,13 @@
         </Grid>
         <DataGrid AutoGenerateColumns="False"
                   SelectionMode="Single" ItemsSource="{Binding TranslationEntries}" CanUserAddRows="False"
-                  
+                  ColumnWidth="300"
                   Grid.Row="1"
-                  Height="800"
-                  CanUserDeleteRows="False">
+                  CanUserDeleteRows="False"
+                  Height=" 800">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Key, Mode=OneTime}" Header="Key" IsReadOnly="True" Width="300" />
-                <DataGridTextColumn Binding="{Binding Cn, Mode=TwoWay}" Header="CN" IsReadOnly="False" Width=" 200">
+                <DataGridTextColumn Binding="{Binding Key, Mode=OneTime}" Header="Key" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding Cn, Mode=TwoWay}" Header="CN" IsReadOnly="False">
                     <DataGridTextColumn.EditingElementStyle>
                         <Style TargetType="TextBox">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -55,7 +55,7 @@
                         </Style>
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding De, Mode=TwoWay}" Header="DE" IsReadOnly="False" Width=" 200">
+                <DataGridTextColumn Binding="{Binding En, Mode=TwoWay}" Header="EN" IsReadOnly="False">
                     <DataGridTextColumn.EditingElementStyle>
                         <Style TargetType="TextBox">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -63,7 +63,7 @@
                         </Style>
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Pl, Mode=TwoWay}" Header="PL" IsReadOnly="False" Width=" 200">
+                <DataGridTextColumn Binding="{Binding De, Mode=TwoWay}" Header="DE" IsReadOnly="False">
                     <DataGridTextColumn.EditingElementStyle>
                         <Style TargetType="TextBox">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -71,7 +71,7 @@
                         </Style>
                     </DataGridTextColumn.EditingElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding En, Mode=TwoWay}" Header="EN" IsReadOnly="False" Width=" 200">
+                <DataGridTextColumn Binding="{Binding Pl, Mode=TwoWay}" Header="PL" IsReadOnly="False">
                     <DataGridTextColumn.EditingElementStyle>
                         <Style TargetType="TextBox">
                             <Setter Property="TextWrapping" Value="Wrap" />

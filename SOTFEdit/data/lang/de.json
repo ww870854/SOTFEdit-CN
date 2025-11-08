@@ -238,6 +238,8 @@
     }
   },
   "companion": {
+    "window": "Begleiter",
+    "set": "Einstellungen",
     "address": "IP/Addresse",
     "connect": "Verbinden",
     "connectionFailed": {
@@ -263,7 +265,7 @@
     "readme": "Readme",
     "readme1": "Der \"Companion\" bietet Extra-Funktionalität für das Spiel, wie Ingame-Teleportation, Positions-Verfolgung und einiges mehr.\n\nBevor der Companion genutzt werden kann muss dieser erst eingerichtet werden. Hierfür müssen die folgenden Dinge installiert werden:\n\n- BepInExPack\n- SOTFEdit Companion Plugin\n\nDiese können entweder manuell anhand der README oder einen Mod-Manager eingerichtet werden:",
     "readme2": "Nachdem beides eingerichtet und das Spiel gestartet wurde, musst du über das Menü eine Verbindung zum Companion herstellen.\n\nDanach stehen im Spiel zwei neue Hotkeys zur Verfügung:\n- Ingame Teleportation zu den meisten Ingame-Orten (Standard: F8)\n- Benutzerdefinierte Location erstellen (F9)\n\nAußerdem wird die Position auf der Karte live aktualisiert.",
-    "settings": "Einstellungen((Settings))",
+    "settings": "Einstellungen",
     "status": {
       "connected": "Verbunden",
       "connecting": "Verbinde...",
@@ -959,10 +961,10 @@
     }
   },
   "languages": {
+    "cn": "Chinese (China)",
     "de": "Deutsch (German)",
     "en": "Englisch (English)",
-    "pl": "Polnisch (Polish)",
-    "cn": "Chinesisch (Chinese)"
+    "pl": "Polnisch (Polish)"
   },
   "map": {
     "actors": "NPCs",
@@ -1114,7 +1116,16 @@
         "checkNow": "Jetzt prüfen",
         "checkOnStartup": "Beim Start prüfen",
         "text": "Aktualisierungen"
-      }
+      },
+      "V1": "Erstellt von codengine",
+      "V2": "Vielen Dank an Gronkh für deine langjährige 'Influenz'. Ohne deine 'The Forest'-Streams hätte ich nie etwas über dieses Spiel erfahren.",
+      "V3": "Übersetzungen und Korrekturen",
+      "V4": " - Polnisch: Mortennif",
+      "V5": " - Deutsch: Hinterix",
+      "V6": " - Chinesisch: 听丶说",
+      "V7": "Unterstützer und Tester",
+      "V8": " - Mortennif, M2THE49, feydrautha01, 听丶说",
+      "V9": "Begleiten Sie mich auf"
     },
     "tools": {
       "cloneWorldObjects": {

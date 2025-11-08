@@ -669,9 +669,4 @@ public partial class MainWindow
             SavegameManager.SelectedSavegame = SavegameManager.CreateSaveInfo(new DirectoryInfo(path));
         }
     }
-
-    private void TabItem_Drop(object sender, DragEventArgs e)
-    {
-
-    }
 }

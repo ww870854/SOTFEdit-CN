@@ -238,6 +238,8 @@
     }
   },
   "companion": {
+    "window": "Companion",
+    "set": "Settings",
     "address": "IP/Address",
     "connect": "Connect",
     "connectionFailed": {
@@ -959,10 +961,10 @@
     }
   },
   "languages": {
+    "cn": "Chinese",
     "de": "Deutsch",
     "en": "English",
-    "pl": "Polski",
-    "cn": "Chinese"
+    "pl": "Polski"
   },
   "map": {
     "actors": "Actors",
@@ -1114,7 +1116,16 @@
         "checkNow": "Check now",
         "checkOnStartup": "Check on Startup",
         "text": "Updates"
-      }
+      },
+      "V1": "Created by codengine",
+      "V2": "Big thanks to Gronkh for your many years of 'Influenz'. Especially without your 'The Forest' streams I would have never known anything about that game.",
+      "V3": "Translations and Corrections",
+      "V4": " - Polish: Mortennif",
+      "V5": " - German: Hinterix",
+      "V6": " - Chinese：听丶说",
+      "V7": "Supporters and Testers",
+      "V8": " - Mortennif, M2THE49, feydrautha01，听丶说",
+      "V9": "Join me on"
     },
     "tools": {
       "cloneWorldObjects": {
