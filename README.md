@@ -1,6 +1,6 @@
 # SOTFEdit - 森林之子存档编辑器
 
-![屏幕截图](https://abload.de/img/sotfeditfadso.jpg)
+![屏幕截图](https://www.imageoss.com/images/2025/11/08/234520251108153145902187e511b0fe4c.png)
 
 [![Build](https://github.com/codengine/SOTFEdit/actions/workflows/build.yaml/badge.svg)](https://github.com/codengine/SOTFEdit/actions/workflows/build.yaml)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/codengine/SOTFEdit)](https://github.com/codengine/SOTFEdit/releases)
@@ -9,7 +9,7 @@
 
 《森林之子》存档编辑器
 
-[![Discord](https://abload.de/img/discordc7csi.png)](https://discord.gg/867UDYvvqE)
+[![Discord](https://www.imageoss.com/images/2025/11/08/discord91d8dbd4f1768f14.png)](https://discord.gg/867UDYvvqE)
 
 - [SOTFEdit - 森林之子存档编辑器](#sotfedit---sons-of-the-forest-savegame-editor)
     - [免责声明](#免责声明)
