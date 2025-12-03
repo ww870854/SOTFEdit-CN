@@ -22,15 +22,15 @@
     <st:AutoGrid Margin="20" Columns="Auto,*" Rows="Auto" VerticalAlignment="Top"
                  HorizontalAlignment="Stretch" ChildMargin="3">
         <Label Content="{infrastructure:Translate 'windows.unlocks.creativeMode'}" />
-        <CheckBox IsChecked="{Binding CreativeMode}" />
+        <CheckBox IsChecked="{Binding CreativeMode}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.unlocks.creativeModeItem'}" />
-        <CheckBox IsChecked="{Binding CreativeModeItem}" />
+        <CheckBox IsChecked="{Binding CreativeModeItem}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.unlocks.coreGameCompleted'}" />
-        <CheckBox IsChecked="{Binding CoreGameCompleted}" />
+        <CheckBox IsChecked="{Binding CoreGameCompleted}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.unlocks.escapedIsland'}" />
-        <CheckBox IsChecked="{Binding EscapedIsland}" />
+        <CheckBox IsChecked="{Binding EscapedIsland}" FontFamily="Microsoft YaHei UI" />
         <Button Content="{infrastructure:Translate 'generic.save'}" Command="{Binding SaveCommand}"
                 Background="{DynamicResource MahApps.Brushes.Accent}"
-                st:AutoGrid.ColumnSpan="2" />
+                st:AutoGrid.ColumnSpan="2" FontFamily="Microsoft YaHei UI" FontSize="12" />
     </st:AutoGrid>
 </mah:MetroWindow>

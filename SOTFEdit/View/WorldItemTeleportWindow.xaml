@@ -28,7 +28,7 @@
         </st:AutoGrid.Resources>
         <ComboBox Grid.ColumnSpan="2"
                   SelectedValue="{Binding SelectedWorldItemType, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedValuePath="Tag">
+                  SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
             <ComboBox.Items>
                 <ComboBoxItem Tag="{x:Static local:WorldItemType.HangGlider}"
                               Content="{infrastructure:Translate 'worldItemTypes.HangGlider' }" />
@@ -41,10 +41,10 @@
         <Button Command="{Binding RemoveAllOfThisTypeCommand}"
                 Background="DarkRed" Grid.ColumnSpan="2"
                 ToolTip="{infrastructure:Translate 'windows.worldItemCloner.buttons.removeAllCopies.tooltip'}"
-                Content="{infrastructure:Translate 'windows.worldItemCloner.buttons.removeAllCopies.text'}" />
+                Content="{infrastructure:Translate 'windows.worldItemCloner.buttons.removeAllCopies.text'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         <Button Command="{Binding CloneObjectAtPlayerPosCommand}"
                 Background="{DynamicResource MahApps.Brushes.Accent}" Grid.ColumnSpan="2"
                 ToolTip="{infrastructure:Translate 'windows.worldItemCloner.buttons.cloneAtPlayerPosition.tooltip'}"
-                Content="{infrastructure:Translate 'windows.worldItemCloner.buttons.cloneAtPlayerPosition.text'}" />
+                Content="{infrastructure:Translate 'windows.worldItemCloner.buttons.cloneAtPlayerPosition.text'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
     </st:AutoGrid>
 </mah:MetroWindow>

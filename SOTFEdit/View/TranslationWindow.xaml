@@ -31,12 +31,12 @@
             <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                 <CheckBox Content="{infrastructure:Translate 'dialogs.translations.missingOnly'}"
                           IsChecked="{Binding OnlyMissing, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                          Margin="0 0 10 0" />
+                          Margin="0 0 10 0" FontFamily="Microsoft YaHei UI" />
                 <TextBox Width="300" Text="{Binding FilterText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                         Margin="0 0 10 0" mah:TextBoxHelper.ClearTextButton="True" />
+                         Margin="0 0 10 0" mah:TextBoxHelper.ClearTextButton="True" FontFamily="Microsoft YaHei UI" />
                 <Button Content="{infrastructure:Translate 'dialogs.translations.filter'}"
-                        Command="{Binding DoFilterCommand}" />
-                <Button Content="{infrastructure:Translate 'generic.save'}" Command="{Binding SaveCommand}" />
+                        Command="{Binding DoFilterCommand}" FontFamily="Microsoft YaHei UI" FontSize="12" />
+                <Button Content="{infrastructure:Translate 'generic.save'}" Command="{Binding SaveCommand}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             </StackPanel>
         </Grid>
         <DataGrid AutoGenerateColumns="False"

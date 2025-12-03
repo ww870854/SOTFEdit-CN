@@ -41,7 +41,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch" Margin="0 0 0 10">
                     <Button Name="AddAllFromCategoryButton" Margin="0 0 5 0"
-                            Content="{infrastructure:Translate 'inventory.buttons.addAllFromCategory'}">
+                            Content="{infrastructure:Translate 'inventory.buttons.addAllFromCategory'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                         <Button.ContextMenu>
                             <ContextMenu VerticalContentAlignment="Top" ItemsSource="{Binding Categories}"
                                          DisplayMemberPath="TypeRendered">
@@ -69,20 +69,20 @@
                         </b:Interaction.Triggers>
                     </Button>
                     <Button Command="{Binding SetAllEquippedToMinCommand}" Margin="0 0 5 0"
-                            Content="{infrastructure:Translate 'inventory.buttons.setAllToMin'}" />
+                            Content="{infrastructure:Translate 'inventory.buttons.setAllToMin'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     <Button Background="{DynamicResource MahApps.Brushes.Accent}"
                             Command="{Binding SetAllEquippedToMaxCommand}" Margin="0 0 5 0"
-                            Content="{infrastructure:Translate 'inventory.buttons.setAllToMax'}" />
+                            Content="{infrastructure:Translate 'inventory.buttons.setAllToMax'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     <Button Background="DarkRed"
                             Command="{Binding RemoveAllEquippedCommand}"
-                            Content="{infrastructure:Translate 'inventory.buttons.removeAll'}" />
+                            Content="{infrastructure:Translate 'inventory.buttons.removeAll'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                 </StackPanel>
                 <TextBox Grid.Row="1"
                          Margin="0,0,0,10"
                          Padding="5"
                          Text="{Binding InventoryFilter, UpdateSourceTrigger=PropertyChanged}"
                          mah:TextBoxHelper.Watermark="{infrastructure:Translate 'inventory.filterWatermark'}"
-                         mah:TextBoxHelper.ClearTextButton="True" />
+                         mah:TextBoxHelper.ClearTextButton="True" FontFamily="Microsoft YaHei UI" />
                 <DataGrid Grid.Row="2" EnableRowVirtualization="True"
                           EnableColumnVirtualization="True" AutoGenerateColumns="False"
                           VirtualizingPanel.VirtualizationMode="Recycling"
@@ -96,10 +96,10 @@
                                 <Button Margin="0,0,5,0" Background="DarkRed"
                                         Command="{Binding DataContext.RemoveItemFromInventoryCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                         CommandParameter="{Binding}"
-                                        Content="{infrastructure:Translate 'inventory.buttons.remove'}" />
+                                        Content="{infrastructure:Translate 'inventory.buttons.remove'}" FontSize="12" />
                                 <Button Background="{DynamicResource MahApps.Brushes.Accent}" Margin="0,0,5,0"
                                         Command="{Binding SetToMaxCommand}"
-                                        Content="{infrastructure:Translate 'inventory.buttons.max'}" />
+                                        Content="{infrastructure:Translate 'inventory.buttons.max'}" FontSize="12" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGrid.Resources>
@@ -135,7 +135,7 @@
                     Padding="5"
                     Text="{Binding UnassignedItemsFilter, UpdateSourceTrigger=PropertyChanged}"
                     mah:TextBoxHelper.Watermark="{infrastructure:Translate 'inventory.filterWatermark'}"
-                    mah:TextBoxHelper.ClearTextButton="True" />
+                    mah:TextBoxHelper.ClearTextButton="True" FontFamily="Microsoft YaHei UI" />
                 <DataGrid Grid.Row="1" EnableRowVirtualization="True"
                           EnableColumnVirtualization="True" AutoGenerateColumns="False"
                           SelectionMode="Single"
@@ -147,7 +147,7 @@
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                                 <Button Margin="0,0,5,0" Background="{DynamicResource MahApps.Brushes.Accent}"
                                         Command="{Binding DataContext.AddUnassignedItemCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                        CommandParameter="{Binding}" Content="{infrastructure:Translate 'generic.add'}" />
+                                        CommandParameter="{Binding}" Content="{infrastructure:Translate 'generic.add'}" FontSize="12"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGrid.Resources>

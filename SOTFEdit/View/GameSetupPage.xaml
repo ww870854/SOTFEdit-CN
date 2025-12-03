@@ -43,7 +43,7 @@
                    Content="{infrastructure:Translate 'game.setup.mode._label'}" />
             <ComboBox Grid.Column="1" Grid.Row="0"
                       SelectedValue="{Binding SelectedMode, UpdateSourceTrigger=PropertyChanged}"
-                      SelectedValuePath="Tag">
+                      SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                 <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.normal'}" Tag="Normal" />
                 <ComboBoxItem Content="{infrastructure:Translate 'game.setup.mode.hard'}"
                               Tag="{x:Static viewModel:GameSetupPageViewModel.HardGameMode}" />
@@ -92,7 +92,7 @@
                 <ComboBox Grid.Column="1" Grid.Row="0"
                           ToolTip="{infrastructure:Translate 'game.setup.consumableEffects._tooltip'}"
                           SelectedValue="{Binding SelectedConsumableEffects, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
@@ -107,7 +107,7 @@
                 <ComboBox Grid.Column="1" Grid.Row="1"
                           ToolTip="{infrastructure:Translate 'game.setup.playerStatsDamage._tooltip'}"
                           SelectedValue="{Binding SelectedPlayerStatsDamage, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
@@ -120,7 +120,7 @@
                        Content="{infrastructure:Translate 'game.setup.animalSpawnRate._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="2"
                           SelectedValue="{Binding SelectedAnimalSpawnRate, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -134,7 +134,7 @@
                        Content="{infrastructure:Translate 'game.setup.coldPenalties'}" />
                 <ComboBox Grid.Column="1" Grid.Row="3"
                           SelectedValue="{Binding SelectedColdPenalties, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
@@ -147,7 +147,7 @@
                        Content="{infrastructure:Translate 'game.setup.buildingResistance'}" />
                 <ComboBox Grid.Column="1" Grid.Row="4"
                           SelectedValue="{Binding SelectedBuildingResistance, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -161,7 +161,7 @@
                        Content="{infrastructure:Translate 'game.setup.coldPenaltiesStatReduction'}" />
                 <ComboBox Grid.Column="1" Grid.Row="5"
                           SelectedValue="{Binding SelectedColdPenaltiesStatReduction, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}" Tag="Off" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.normal'}"
@@ -172,34 +172,34 @@
 
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="6"
                        Content="{infrastructure:Translate 'game.setup.inventoryPause'}" />
-                <CheckBox IsChecked="{Binding SelectedInventoryPause}" Grid.Row="6" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedInventoryPause}" Grid.Row="6" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="7"
                        Content="{infrastructure:Translate 'game.setup.reducedFoodInContainers'}" />
-                <CheckBox IsChecked="{Binding SelectedReducedFoodInContainers}" Grid.Row="7" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedReducedFoodInContainers}" Grid.Row="7" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="8"
                        Content="{infrastructure:Translate 'game.setup.reducedAmmoInContainers'}" />
-                <CheckBox IsChecked="{Binding SelectedReducedAmmoInContainers}" Grid.Row="8" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedReducedAmmoInContainers}" Grid.Row="8" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="9"
                        Content="{infrastructure:Translate 'game.setup.singleUseContainers'}" />
-                <CheckBox IsChecked="{Binding SelectedSingleUseContainers}" Grid.Row="9" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedSingleUseContainers}" Grid.Row="9" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="10"
                        Content="{infrastructure:Translate 'game.setup.playersTriggerTraps'}" />
-                <CheckBox IsChecked="{Binding SelectedPlayersTriggerTraps}" Grid.Row="10" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedPlayersTriggerTraps}" Grid.Row="10" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="11"
                        Content="{infrastructure:Translate 'game.setup.creativeMode'}" />
-                <CheckBox IsChecked="{Binding SelectedCreativeMode}" Grid.Row="11" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedCreativeMode}" Grid.Row="11" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="12"
                        Content="{infrastructure:Translate 'game.setup.immortalMode'}" />
-                <CheckBox IsChecked="{Binding SelectedPlayersImmortalMode}" Grid.Row="12" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedPlayersImmortalMode}" Grid.Row="12" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="13"
                        Content="{infrastructure:Translate 'game.setup.oneHitToCutTrees'}" />
-                <CheckBox IsChecked="{Binding SelectedOneHitToCutTrees}" Grid.Row="13" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedOneHitToCutTrees}" Grid.Row="13" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="14"
                        Content="{infrastructure:Translate 'game.setup.forcePlaceFullLoad'}" />
-                <CheckBox IsChecked="{Binding SelectedForcePlaceFullLoad}" Grid.Row="14" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedForcePlaceFullLoad}" Grid.Row="14" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="15"
                        Content="{infrastructure:Translate 'game.setup.noCuttingsSpawn'}" />
-                <CheckBox IsChecked="{Binding SelectedNoCuttingsSpawn}" Grid.Row="15" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedNoCuttingsSpawn}" Grid.Row="15" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
             </Grid>
         </GroupBox>
         <GroupBox Margin="0 0 0 10" Header="{infrastructure:Translate 'game.setup.headers.enemiesCustom'}" Grid.Row="2"
@@ -220,12 +220,12 @@
                 </Grid.RowDefinitions>
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="0"
                        Content="{infrastructure:Translate 'game.setup.spawnEnemies'}" />
-                <CheckBox IsChecked="{Binding SelectedEnemySpawn}" Grid.Row="0" Grid.Column="1" />
+                <CheckBox IsChecked="{Binding SelectedEnemySpawn}" Grid.Row="0" Grid.Column="1" FontFamily="Microsoft YaHei UI" />
                 <Label Style="{StaticResource LabelStyle}" Grid.Column="0" Grid.Row="1"
                        Content="{infrastructure:Translate 'game.setup.enemyHealth._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="1"
                           SelectedValue="{Binding SelectedEnemyHealth, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -238,7 +238,7 @@
                        Content="{infrastructure:Translate 'game.setup.enemyDamage._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="2"
                           SelectedValue="{Binding SelectedEnemyDamage, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -251,7 +251,7 @@
                        Content="{infrastructure:Translate 'game.setup.enemyArmour._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="3"
                           SelectedValue="{Binding SelectedEnemyArmour, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -265,7 +265,7 @@
                        Content="{infrastructure:Translate 'game.setup.enemyAggression._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="4"
                           SelectedValue="{Binding SelectedEnemyAggression, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -278,7 +278,7 @@
                        Content="{infrastructure:Translate 'game.setup.enemySearchParties._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="5"
                           SelectedValue="{Binding SelectedEnemySearchParties, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueLOW}" />
@@ -301,7 +301,7 @@
                        Content="{infrastructure:Translate 'game.setup.pvpDamage'}" />
                 <ComboBox Grid.Column="1" Grid.Row="0"
                           SelectedValue="{Binding SelectedPvpDamage, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.off'}"
                                   Tag="{x:Static viewModel:GameSetupPageViewModel.SettingValueOff}" />
@@ -329,7 +329,7 @@
                        Content="{infrastructure:Translate 'game.setup.startingSeason._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="0"
                           SelectedValue="{Binding SelectedStartingSeason, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.startingSeason.spring'}" Tag="Spring" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.startingSeason.summer'}" Tag="Summer" />
@@ -340,7 +340,7 @@
                        Content="{infrastructure:Translate 'game.setup.seasonLength._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="1"
                           SelectedValue="{Binding SelectedSeasonLength, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.seasonLength.short'}" Tag="Short" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.seasonLength.default'}" Tag="Default" />
@@ -352,7 +352,7 @@
                        Content="{infrastructure:Translate 'game.setup.dayLength._label'}" />
                 <ComboBox Grid.Column="1" Grid.Row="2"
                           SelectedValue="{Binding SelectedDayLength, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.dayLength.short'}" Tag="Short" />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.dayLength.default'}" Tag="Default" />
@@ -365,7 +365,7 @@
                 <ComboBox Grid.Column="1" Grid.Row="3"
                           ToolTip="{infrastructure:Translate 'game.setup.precipitationFrequency._tooltip'}"
                           SelectedValue="{Binding SelectedPrecipitationFrequency, UpdateSourceTrigger=PropertyChanged}"
-                          SelectedValuePath="Tag">
+                          SelectedValuePath="Tag" FontFamily="Microsoft YaHei UI">
                     <ComboBoxItem />
                     <ComboBoxItem Content="{infrastructure:Translate 'game.setup.settingsValues.low'}"
                                   Tag="Low" />

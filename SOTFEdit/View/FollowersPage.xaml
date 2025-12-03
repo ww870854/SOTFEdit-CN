@@ -41,17 +41,17 @@
                                Margin="0 0 0 10" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToPlayerCommand}"
                                 CommandParameter="{Binding KelvinState}"
-                                Content="{infrastructure:Translate 'followers.buttons.moveToPlayer'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.moveToPlayer'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToVirginiaCommand}"
                                 CommandParameter="{Binding KelvinState}"
-                                Content="{infrastructure:Translate 'followers.buttons.moveToVirginia'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.moveToVirginia'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding ReviveCommand}"
                                 CommandParameter="{Binding KelvinState}"
                                 ToolTip="{infrastructure:Translate 'followers.reviveTooltip'}"
-                                Content="{infrastructure:Translate 'followers.buttons.revive'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.revive'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding SpawnCommand}"
                                 CommandParameter="{Binding KelvinState}"
-                                Content="{infrastructure:Translate 'followers.buttons.spawn'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.spawn'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     </StackPanel>
                     <st:AutoGrid Columns="Auto,*" VerticalAlignment="Top" HorizontalAlignment="Stretch"
                                  Margin="10" ChildMargin="4" ChildVerticalAlignment="Center">
@@ -146,7 +146,7 @@
                         </StackPanel>
                         <Label Content="{infrastructure:Translate 'followers.outfitLabel'}" />
                         <ComboBox ItemsSource="{Binding KelvinState.Outfits}"
-                                  SelectedItem="{Binding KelvinState.Outfit}">
+                                  SelectedItem="{Binding KelvinState.Outfit}" FontFamily="Microsoft YaHei UI">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate DataType="{x:Type model:Outfit}">
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" />
@@ -156,7 +156,7 @@
                         <Button HorizontalAlignment="Center" Margin="0 10 0 10" Padding="10" Grid.ColumnSpan="2"
                                 Background="{DynamicResource MahApps.Brushes.Accent}"
                                 Command="{Binding FillAllBarsCommand}" CommandParameter="{Binding KelvinState}"
-                                Content="{infrastructure:Translate 'followers.buttons.fillAllBars'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.fillAllBars'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     </st:AutoGrid>
                     <view:InfluenceContainer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ShowDisclaimer="False"
                                              InfluencesTarget="{Binding KelvinState.Influences}"
@@ -174,17 +174,17 @@
                                Margin="0 0 0 10" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToPlayerCommand}"
                                 CommandParameter="{Binding VirginiaState}"
-                                Content="{infrastructure:Translate 'followers.buttons.moveToPlayer'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.moveToPlayer'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToKelvinCommand}"
                                 CommandParameter="{Binding VirginiaState}"
-                                Content="{infrastructure:Translate 'followers.buttons.moveToKelvin'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.moveToKelvin'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding ReviveCommand}"
                                 CommandParameter="{Binding VirginiaState}"
                                 ToolTip="{infrastructure:Translate 'followers.reviveTooltip'}"
-                                Content="{infrastructure:Translate 'followers.buttons.revive'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.revive'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding SpawnCommand}"
                                 CommandParameter="{Binding VirginiaState}"
-                                Content="{infrastructure:Translate 'followers.buttons.spawn'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.spawn'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     </StackPanel>
                     <st:AutoGrid Columns="Auto,*" VerticalAlignment="Top" HorizontalAlignment="Stretch"
                                  Margin="10" ChildMargin="4" ChildVerticalAlignment="Center">
@@ -279,7 +279,7 @@
                         </StackPanel>
                         <Label Content="{infrastructure:Translate 'followers.outfitLabel'}" />
                         <ComboBox ItemsSource="{Binding VirginiaState.Outfits}"
-                                  SelectedItem="{Binding VirginiaState.Outfit}">
+                                  SelectedItem="{Binding VirginiaState.Outfit}" FontFamily="Microsoft YaHei UI">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate DataType="{x:Type model:Outfit}">
                                     <TextBlock Text="{Binding Name, Mode=OneTime}" />
@@ -289,7 +289,7 @@
                         <Button HorizontalAlignment="Center" Margin="0 10 0 10" Padding="10" Grid.ColumnSpan="2"
                                 Background="{DynamicResource MahApps.Brushes.Accent}"
                                 Command="{Binding FillAllBarsCommand}" CommandParameter="{Binding VirginiaState}"
-                                Content="{infrastructure:Translate 'followers.buttons.fillAllBars'}" />
+                                Content="{infrastructure:Translate 'followers.buttons.fillAllBars'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     </st:AutoGrid>
                     <view:InfluenceContainer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ShowDisclaimer="False"
                                              InfluencesTarget="{Binding VirginiaState.Influences}"

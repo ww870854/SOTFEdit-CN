@@ -50,57 +50,57 @@
                     <st:AutoGrid Margin="3" ChildMargin="4" Columns="Auto,Auto,Auto,Auto">
                         <Label Content="{infrastructure:Translate 'map.area'}" />
                         <ComboBox Grid.ColumnSpan="3" ItemsSource="{Binding Areas}"
-                                  SelectedItem="{Binding SelectedArea}" DisplayMemberPath="Name" />
+                                  SelectedItem="{Binding SelectedArea}" DisplayMemberPath="Name" FontFamily="Microsoft YaHei UI" />
                         <Label Content="X" />
                         <Label Content="{Binding X}" />
                         <Label Content="{infrastructure:Translate 'map.teleportWindow.offset'}" />
                         <mah:NumericUpDown Value="{Binding XOffset, UpdateSourceTrigger=PropertyChanged}" Interval="1"
                                            NumericInputMode="Decimal" Minimum="-10"
-                                           Maximum="100" />
+                                           Maximum="100" FontFamily="Microsoft YaHei UI" />
                         <Label Content="Y" />
                         <Label Content="{Binding Y}" />
                         <Label Content="{infrastructure:Translate 'map.teleportWindow.offset'}" />
                         <mah:NumericUpDown Value="{Binding YOffset, UpdateSourceTrigger=PropertyChanged}" Interval="1"
                                            NumericInputMode="Decimal" Minimum="-10"
-                                           Maximum="100" />
+                                           Maximum="100" FontFamily="Microsoft YaHei UI" />
                         <Label Content="Z" />
                         <Label Content="{Binding Z}" />
                         <Label Content="{infrastructure:Translate 'map.teleportWindow.offset'}" />
                         <mah:NumericUpDown Value="{Binding ZOffset, UpdateSourceTrigger=PropertyChanged}" Interval="1"
                                            NumericInputMode="Decimal" Minimum="-100"
-                                           Maximum="100" />
+                                           Maximum="100" FontFamily="Microsoft YaHei UI" />
                     </st:AutoGrid>
                 </GroupBox>
                 <GroupBox Header="{infrastructure:Translate 'map.spawnWindow.options'}" Margin="3 0 0 0">
                     <st:AutoGrid ChildMargin="3" Columns="Auto,Auto">
                         <Label Content="{infrastructure:Translate 'map.spawnWindow.actorType'}" />
                         <ComboBox SelectedItem="{Binding SelectedActorType}"
-                                  ItemsSource="{Binding AllActorTypes}" DisplayMemberPath="Name" />
+                                  ItemsSource="{Binding AllActorTypes}" DisplayMemberPath="Name" FontFamily="Microsoft YaHei UI" />
                         <Label Content="{infrastructure:Translate 'map.spawnWindow.count'}" />
                         <mah:NumericUpDown Value="{Binding SpawnCount, UpdateSourceTrigger=PropertyChanged}"
                                            Interval="1"
                                            NumericInputMode="Numbers" Minimum="1"
-                                           Maximum="200" />
+                                           Maximum="200" FontFamily="Microsoft YaHei UI" />
                         <Label Content="{infrastructure:Translate 'map.spawnWindow.family'}" />
                         <ComboBox SelectedItem="{Binding FamilyId}"
-                                  ItemsSource="{Binding AllFamilyIds}" />
+                                  ItemsSource="{Binding AllFamilyIds}" FontFamily="Microsoft YaHei UI" />
                         <Label Content="{infrastructure:Translate 'map.spawnWindow.spawnPattern.text'}" />
                         <ComboBox SelectedValue="{Binding SelectedSpawnPattern}"
                                   ItemsSource="{Binding AllSpawnPatterns}" DisplayMemberPath="Title"
-                                  SelectedValuePath="Value" />
+                                  SelectedValuePath="Value" FontFamily="Microsoft YaHei UI" />
                         <Label Content="{infrastructure:Translate 'map.spawnWindow.spaceBetween.text'}"
                                ToolTip="{infrastructure:Translate 'map.spawnWindow.spaceBetween.tooltip'}" />
                         <mah:NumericUpDown ToolTip="{infrastructure:Translate 'map.spawnWindow.spaceBetween.tooltip'}"
                                            Value="{Binding SpaceBetween, UpdateSourceTrigger=PropertyChanged}"
                                            Interval="1"
                                            NumericInputMode="Numbers" Minimum="0"
-                                           Maximum="200" />
+                                           Maximum="200" FontFamily="Microsoft YaHei UI" />
                     </st:AutoGrid>
                 </GroupBox>
             </st:AutoGrid>
             <Button Padding="10" Background="DarkGreen" HorizontalAlignment="Center"
                     Content="{infrastructure:Translate 'map.spawnWindow.doSpawn'}"
-                    Command="{Binding DoSpawnCommand}" />
+                    Command="{Binding DoSpawnCommand}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         </st:AutoGrid>
         <view:InfluenceContainer Margin="10" Grid.Column="1" InfluencesTarget="{Binding Influences}"
                                  AllInfluences="{Binding AllInfluences}" />

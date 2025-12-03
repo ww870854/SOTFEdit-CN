@@ -42,10 +42,10 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Button Command="{Binding SaveCommand}" Margin="0 0 8 0" Padding="15"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Content="{infrastructure:Translate 'generic.save'}" />
+                    Content="{infrastructure:Translate 'generic.save'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             <Button Command="{Binding RemoveAllCommand}" Padding="15"
                     Background="{DynamicResource MahApps.Brushes.Accent}"
-                    Content="{infrastructure:Translate 'windows.modifyConsumedItems.removeAll'}" />
+                    Content="{infrastructure:Translate 'windows.modifyConsumedItems.removeAll'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         </StackPanel>
     </st:AutoGrid>
 </mah:MetroWindow>

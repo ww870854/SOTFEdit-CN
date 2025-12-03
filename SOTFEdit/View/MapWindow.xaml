@@ -213,7 +213,7 @@
                         <st:AutoGrid Columns="*" Rows="Auto,*">
                             <Button Content="{infrastructure:Translate 'map.buttons.deselectAll'}" Margin="4 4 4 6"
                                     Command="{Binding DeselectAllCommand}"
-                                    DockPanel.Dock="Right" />
+                                    DockPanel.Dock="Right" FontSize="12" FontFamily="Microsoft YaHei UI" />
                             <ScrollViewer CanContentScroll="True" PreviewMouseWheel="PoiSelector_OnPreviewMouseWheel"
                                           VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                                 <TreeView ItemsSource="{Binding PoiGroups}">
@@ -299,14 +299,14 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button Command="{Binding OpenCategorySelectorCommand}"
                                         Content="{infrastructure:Translate 'map.options'}"
-                                        Background="{DynamicResource MahApps.Brushes.Accent}" Margin="0 0 5 0" />
+                                        Background="{DynamicResource MahApps.Brushes.Accent}" Margin="0 0 5 0" FontSize="12" FontFamily="Microsoft YaHei UI" />
                                 <ToggleButton
                                     Width="55"
                                     Content="{infrastructure:Translate 'map.fill'}"
                                     IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Fill}}"
-                                    Margin="0 0 5 0" />
+                                    Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" FontSize="12" />
                                 <ComboBox SelectedValuePath="Tag" SelectedValue="{Binding MapSelection}"
-                                          BorderBrush="Transparent">
+                                          BorderBrush="Transparent" FontFamily="Microsoft YaHei UI" FontSize="12">
                                     <ComboBoxItem Tag="{x:Static viewModel:MapType.Dark}"
                                                   Content="{infrastructure:Translate 'map.mapType.dark'}" />
                                     <ComboBoxItem Tag="{x:Static viewModel:MapType.Original}"

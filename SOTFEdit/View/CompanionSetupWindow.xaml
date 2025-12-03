@@ -34,26 +34,26 @@
         <GroupBox Header="{infrastructure:Translate 'companion.set'}" Padding="8" Margin="8 8 8 8">
             <st:AutoGrid Columns="Auto,*,Auto" ChildMargin="4">
                 <Label Content="{infrastructure:Translate 'companion.address'}" />
-                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" />
+                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" FontFamily="Microsoft YaHei UI" />
                 <Label Content="{infrastructure:Translate 'companion.port'}" />
                 <mah:NumericUpDown Minimum="1024" Maximum="65535"
-                                   Value="{Binding Port, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" />
+                                   Value="{Binding Port, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2" FontFamily="Microsoft YaHei UI" />
                 <TextBlock Grid.ColumnSpan="3" Text="{infrastructure:Translate 'companion.portHint'}"
                            TextWrapping="Wrap" FontStyle="Italic" FontSize="11" />
                 <Label Content="{infrastructure:Translate 'companion.connectTimeout'}" />
                 <mah:NumericUpDown Minimum="5" Maximum="180"
-                                   Value="{Binding ConnectTimeout, UpdateSourceTrigger=PropertyChanged}" />
+                                   Value="{Binding ConnectTimeout, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                 <Label Content="{infrastructure:Translate 'generic.seconds'}" />
                 <Label Content="{infrastructure:Translate 'companion.keepAliveInterval'}" />
                 <mah:NumericUpDown Minimum="5" Maximum="180"
-                                   Value="{Binding KeepAliveInterval, UpdateSourceTrigger=PropertyChanged}" />
+                                   Value="{Binding KeepAliveInterval, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                 <Label Content="{infrastructure:Translate 'generic.seconds'}" />
                 <Label Content="{infrastructure:Translate 'companion.mapPositionUpdateInterval'}" />
                 <mah:NumericUpDown Minimum="0.05" Maximum="5" Interval="0.1" NumericInputMode="Decimal"
-                                   Value="{Binding MapPositionUpdateInterval, UpdateSourceTrigger=PropertyChanged}" />
+                                   Value="{Binding MapPositionUpdateInterval, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                 <Label Content="{infrastructure:Translate 'generic.seconds'}" />
                 <Button Content="{infrastructure:Translate 'generic.save'}" Command="{Binding SaveCommand}"
-                        Grid.ColumnSpan="3" Padding="8" />
+                        Grid.ColumnSpan="3" Padding="8" FontFamily="Microsoft YaHei UI" FontSize="12" />
                 <Label Grid.ColumnSpan="3" Content="{Binding StatusText}" />
             </st:AutoGrid>
         </GroupBox>

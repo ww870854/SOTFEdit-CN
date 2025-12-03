@@ -24,32 +24,34 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Canvas Width="349" Height="500">
+        <Canvas Width="300" Height="400">
             <Image Canvas.Top="0" Canvas.Left="0" Source="pack://application:,,,/SOTFEdit;component/images/about.jpg"
-                   Width="349"
-                   Height="500" />
+                   Width="300"
+                   Height="400" />
             <TextBlock Canvas.Bottom="20" Canvas.Right="20" TextAlignment="Right" Foreground="White" FontWeight="Bold"
                        Text="{Binding AssemblyVersion}" />
         </Canvas>
 
-        <st:AutoGrid Margin="10" VerticalAlignment="Top" HorizontalAlignment="Stretch" ChildMargin="3" Columns="*"
+        <st:AutoGrid Margin="10" Height="380" VerticalAlignment="Top" HorizontalAlignment="Stretch" ChildMargin="3" Columns="*"
                      Grid.Column="1">
             <TextBlock xml:space="preserve" TextWrapping="Wrap" ><Run FontSize="16" FontWeight="Bold" Text="{infrastructure:Translate 'menu.help.V1'}" />
 
 <Run FontSize="13" Text="{infrastructure:Translate 'menu.help.V2'}" />
 
 <Bold Foreground="{DynamicResource MahApps.Brushes.Accent}"><Run Text="{infrastructure:Translate 'menu.help.V3'}" /></Bold>
+                
 <Run Text="{infrastructure:Translate 'menu.help.V4'}" />
 <Run Text="{infrastructure:Translate 'menu.help.V5'}" />
 <Run Text="{infrastructure:Translate 'menu.help.V6'}" />
 
 <Bold Foreground="{DynamicResource MahApps.Brushes.Accent}"><Run Text="{infrastructure:Translate 'menu.help.V7'}" /></Bold>
+                
 <Run Text="{infrastructure:Translate 'menu.help.V8'}" />
 </TextBlock>
             <TextBlock FontWeight="Bold" Foreground="{DynamicResource MahApps.Brushes.Accent}"><Run Text="{infrastructure:Translate 'menu.help.V9'}" /></TextBlock>
             <Image HorizontalAlignment="Left" Cursor="Hand"
                    Source="pack://application:,,,/SOTFEdit;component/images/discord.png" Width="250"
-                   Height="47" Margin="3 3 3 15">
+                   Height="47" Margin="6 3 3 15">
                 <Image.InputBindings>
                     <MouseBinding Gesture="LeftClick" Command="{Binding OpenDiscordCommand, Mode=OneTime}" />
                 </Image.InputBindings>

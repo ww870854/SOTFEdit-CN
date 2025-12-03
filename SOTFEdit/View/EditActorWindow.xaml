@@ -178,22 +178,22 @@
                         <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
                             <RadioButton GroupName="ModificationMode" Margin="0 0 8 0"
                                          IsChecked="{Binding ModificationMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='{x:Static actors:ActorModificationMode.Modify}'}"
-                                         Content="{infrastructure:Translate 'actors.modificationMode.Modify'}" />
+                                         Content="{infrastructure:Translate 'actors.modificationMode.Modify'}" FontFamily="Microsoft YaHei UI" />
                             <RadioButton GroupName="ModificationMode"
                                          IsChecked="{Binding ModificationMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='{x:Static actors:ActorModificationMode.Remove}'}"
-                                         Content="{infrastructure:Translate 'actors.modificationMode.Remove'}" />
+                                         Content="{infrastructure:Translate 'actors.modificationMode.Remove'}" FontFamily="Microsoft YaHei UI" />
                         </StackPanel>
                         <ComboBox Grid.Row="1" ItemsSource="{Binding AllActorSelections}"
                                   SelectedValue="{Binding ActorSelection}" DisplayMemberPath="Title"
-                                  SelectedValuePath="Value" Margin="0 0 0 10" />
+                                  SelectedValuePath="Value" Margin="0 0 0 10" FontFamily="Microsoft YaHei UI" />
                         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0 0 0 10">
                             <CheckBox Content="{infrastructure:Translate 'actors.modificationOptions.skipKelvin'}"
-                                      IsChecked="{Binding SkipKelvin}" Margin="0 0 8 0" />
+                                      IsChecked="{Binding SkipKelvin}" Margin="0 0 8 0" FontFamily="Microsoft YaHei UI" />
                             <CheckBox Content="{infrastructure:Translate 'actors.modificationOptions.skipVirginia'}"
-                                      IsChecked="{Binding SkipVirginia}" />
+                                      IsChecked="{Binding SkipVirginia}" FontFamily="Microsoft YaHei UI" />
                         </StackPanel>
                         <CheckBox Grid.Row="3" IsChecked="{Binding OnlyInSameAreaAsActor}"
-                                  Content="{infrastructure:Translate 'actors.modificationOptions.onlyInSameAreaAsActor'}" />
+                                  Content="{infrastructure:Translate 'actors.modificationOptions.onlyInSameAreaAsActor'}" FontFamily="Microsoft YaHei UI" />
                     </Grid>
                 </GroupBox>
                 <GroupBox Grid.Row="1" Header="{infrastructure:Translate 'actors.headers.stats'}" Padding="10"
@@ -213,16 +213,16 @@
                                    Text="{infrastructure:Translate 'actors.stats.energy'}" />
                         <mah:NumericUpDown Margin="0 0 10 0" Grid.Row="0" Grid.Column="1" Minimum="1" Maximum="100"
                                            NumericInputMode="Numbers" Interval="10"
-                                           Value="{Binding ModifyOptions.ActorEnergy, UpdateSourceTrigger=PropertyChanged}" />
+                                           Value="{Binding ModifyOptions.ActorEnergy, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                         <CheckBox Grid.Row="0" Grid.Column="2" IsChecked="{Binding ModifyOptions.UpdateEnergy}"
-                                  Content="{infrastructure:Translate 'generic.update'}" />
+                                  Content="{infrastructure:Translate 'generic.update'}" FontFamily="Microsoft YaHei UI" />
                         <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}"
                                    Text="{infrastructure:Translate 'actors.stats.health'}" />
                         <mah:NumericUpDown Margin="0 0 10 0" Grid.Row="1" Grid.Column="1" Minimum="1" Maximum="99999"
                                            NumericInputMode="Numbers" Interval="10"
-                                           Value="{Binding ModifyOptions.ActorHealth, UpdateSourceTrigger=PropertyChanged}" />
+                                           Value="{Binding ModifyOptions.ActorHealth, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                         <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding ModifyOptions.UpdateHealth}"
-                                  Content="{infrastructure:Translate 'generic.update'}" />
+                                  Content="{infrastructure:Translate 'generic.update'}" FontFamily="Microsoft YaHei UI" />
                     </Grid>
                 </GroupBox>
                 <GroupBox Grid.Row="2" Header="{infrastructure:Translate 'actors.headers.modificationOptions'}"
@@ -238,20 +238,20 @@
                                 Content="{infrastructure:Translate 'actors.modificationOptions.removeSpawner.text'}"
                                 IsChecked="{Binding ModifyOptions.RemoveSpawner}"
                                 ToolTip="{infrastructure:Translate 'actors.modificationOptions.removeSpawner.tooltip'}"
-                                Margin="0 0 0 8" />
+                                Margin="0 0 0 8" FontFamily="Microsoft YaHei UI" />
                             <CheckBox
                                 Content="{infrastructure:Translate 'actors.modificationOptions.updateInfluences'}"
                                 Margin="0 0 0 8"
-                                IsChecked="{Binding ModifyOptions.UpdateInfluences}" />
+                                IsChecked="{Binding ModifyOptions.UpdateInfluences}" FontFamily="Microsoft YaHei UI" />
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition />
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
                                 <TextBlock Style="{StaticResource LabelStyle}"
-                                           Text="{infrastructure:Translate 'actors.modificationOptions.replaceType'}" />
+                                           Text="{infrastructure:Translate 'actors.modificationOptions.replaceType'}" FontSize="12" FontFamily="Microsoft YaHei UI" />
                                 <ComboBox Grid.Row="1" SelectedItem="{Binding ModifyOptions.ReplaceType}"
-                                          ItemsSource="{Binding AllActorTypes}" DisplayMemberPath="Name" />
+                                          ItemsSource="{Binding AllActorTypes}" DisplayMemberPath="Name" FontFamily="Microsoft YaHei UI" />
                             </Grid>
                         </StackPanel>
                         <StackPanel Grid.Column="1">
@@ -261,18 +261,18 @@
                                        Text="{infrastructure:Translate 'actors.modificationOptions.teleport.teleportLabel'}" />
                             <RadioButton GroupName="TeleportMode" Margin="0 0 0 8"
                                          IsChecked="{Binding ModifyOptions.TeleportMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter=''}"
-                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.none'}" />
+                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.none'}" FontFamily="Microsoft YaHei UI" />
                             <RadioButton GroupName="TeleportMode" Margin="0 0 0 8"
                                          IsChecked="{Binding ModifyOptions.TeleportMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='PlayerToNpc'}"
-                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.playerToNpc'}" />
+                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.playerToNpc'}" FontFamily="Microsoft YaHei UI" />
                             <RadioButton GroupName="TeleportMode" Margin="0 0 0 8"
                                          IsChecked="{Binding ModifyOptions.TeleportMode, Converter={StaticResource StringToBooleanConverter}, ConverterParameter='NpcToPlayer'}"
-                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.npcToPlayer'}" />
+                                         Content="{infrastructure:Translate 'actors.modificationOptions.teleport.npcToPlayer'}" FontFamily="Microsoft YaHei UI" />
                         </StackPanel>
                     </Grid>
                 </GroupBox>
                 <Button Grid.Row="3" Padding="10" Background="{StaticResource MahApps.Brushes.Accent}"
-                        Command="{Binding SaveCommand}" Content="{infrastructure:Translate 'generic.save'}" />
+                        Command="{Binding SaveCommand}" Content="{infrastructure:Translate 'generic.save'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             </Grid>
         </GroupBox>
     </Grid>

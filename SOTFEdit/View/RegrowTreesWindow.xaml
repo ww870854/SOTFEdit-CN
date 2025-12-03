@@ -36,17 +36,17 @@
             <Label Content="{infrastructure:Translate 'windows.regrowTrees.pctRegrow'}" />
         </st:AutoGrid>
         <Label Content="{Binding PrintAll}" />
-        <mah:ToggleSwitch IsOn="{Binding VegetationStateIsAllSelected}" />
+        <mah:ToggleSwitch IsOn="{Binding VegetationStateIsAllSelected}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{Binding PrintGone}" />
         <mah:ToggleSwitch
-            IsOn="{Binding Path=VegetationStateSelected, Converter={StaticResource VegetationStateToBooleanConverter}, ConverterParameter={x:Static model:VegetationState.Gone}}" />
+            IsOn="{Binding Path=VegetationStateSelected, Converter={StaticResource VegetationStateToBooleanConverter}, ConverterParameter={x:Static model:VegetationState.Gone}}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{Binding PrintHalfChopped}" />
         <mah:ToggleSwitch
-            IsOn="{Binding Path=VegetationStateSelected, Converter={StaticResource VegetationStateToBooleanConverter}, ConverterParameter={x:Static model:VegetationState.HalfChopped}}" />
+            IsOn="{Binding Path=VegetationStateSelected, Converter={StaticResource VegetationStateToBooleanConverter}, ConverterParameter={x:Static model:VegetationState.HalfChopped}}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{Binding PrintStumps}" />
         <mah:ToggleSwitch
-            IsOn="{Binding Path=VegetationStateSelected, Converter={StaticResource VegetationStateToBooleanConverter}, ConverterParameter={x:Static model:VegetationState.Stumps}}" />
+            IsOn="{Binding Path=VegetationStateSelected, Converter={StaticResource VegetationStateToBooleanConverter}, ConverterParameter={x:Static model:VegetationState.Stumps}}" FontFamily="Microsoft YaHei UI" />
         <Button HorizontalAlignment="Center" Command="{Binding SaveCommand}" Padding="10" FontSize="14"
-                Grid.ColumnSpan="2" Content="{infrastructure:Translate 'windows.regrowTrees.saveButton'}" />
+                Grid.ColumnSpan="2" Content="{infrastructure:Translate 'windows.regrowTrees.saveButton'}" FontFamily="Microsoft YaHei UI" />
     </st:AutoGrid>
 </mah:MetroWindow>

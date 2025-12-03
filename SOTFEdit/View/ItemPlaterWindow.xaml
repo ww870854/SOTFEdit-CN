@@ -24,52 +24,52 @@
         <TextBlock Text="{infrastructure:Translate 'windows.itemPlater.disclaimer'}" TextWrapping="Wrap"
                    st:AutoGrid.ColumnSpan="2" />
         <Label Content="{infrastructure:Translate 'windows.itemPlater.itemsInInventory'}" />
-        <CheckBox IsChecked="{Binding ItemsInInventory}" />
+        <CheckBox IsChecked="{Binding ItemsInInventory}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.itemPlater.itemsInWeaponRacks'}" />
-        <CheckBox IsChecked="{Binding ItemsInWeaponRacks}" />
+        <CheckBox IsChecked="{Binding ItemsInWeaponRacks}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.itemPlater.followerItems'}" />
-        <CheckBox IsChecked="{Binding FollowerItems}" />
+        <CheckBox IsChecked="{Binding FollowerItems}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.itemPlater.structures'}" />
         <StackPanel Orientation="Horizontal">
             <CheckBox IsChecked="{Binding StorageStructures}"
-                      Content="{infrastructure:Translate 'structures.categories.storage'}" Margin="0 0 5 0" />
+                      Content="{infrastructure:Translate 'structures.categories.storage'}" Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding FurnitureStructures}"
-                      Content="{infrastructure:Translate 'structures.categories.furniture'}" Margin="0 0 5 0" />
+                      Content="{infrastructure:Translate 'structures.categories.furniture'}" Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding TrapsStructures}"
-                      Content="{infrastructure:Translate 'structures.categories.traps'}" Margin="0 0 5 0" />
+                      Content="{infrastructure:Translate 'structures.categories.traps'}" Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding UtilityStructures}"
-                      Content="{infrastructure:Translate 'structures.categories.utility'}" Margin="0 0 5 0" />
+                      Content="{infrastructure:Translate 'structures.categories.utility'}" Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding GardeningStructures}"
-                      Content="{infrastructure:Translate 'structures.categories.gardening'}" Margin="0 0 5 0" />
+                      Content="{infrastructure:Translate 'structures.categories.gardening'}" Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding MiscStructures}"
-                      Content="{infrastructure:Translate 'structures.categories.misc'}" />
+                      Content="{infrastructure:Translate 'structures.categories.misc'}" FontFamily="Microsoft YaHei UI" />
         </StackPanel>
         <Label Content="{infrastructure:Translate 'windows.itemPlater.constructions'}" />
         <StackPanel Orientation="Horizontal">
             <CheckBox IsChecked="{Binding LogConstruction}"
                       Content="{infrastructure:Translate 'windows.itemPlater.constructionCategories.Log'}"
-                      Margin="0 0 5 0" />
+                      Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding LogPlankConstruction}"
                       Content="{infrastructure:Translate 'windows.itemPlater.constructionCategories.LogPlank'}"
-                      Margin="0 0 5 0" />
+                      Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding StickConstruction}"
                       Content="{infrastructure:Translate 'windows.itemPlater.constructionCategories.Stick'}"
-                      Margin="0 0 5 0" />
+                      Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding ItemConstruction}"
                       Content="{infrastructure:Translate 'windows.itemPlater.constructionCategories.Item'}"
-                      Margin="0 0 5 0" />
+                      Margin="0 0 5 0" FontFamily="Microsoft YaHei UI" />
             <CheckBox IsChecked="{Binding StoneConstruction}"
-                      Content="{infrastructure:Translate 'windows.itemPlater.constructionCategories.Stone'}" />
+                      Content="{infrastructure:Translate 'windows.itemPlater.constructionCategories.Stone'}" FontFamily="Microsoft YaHei UI" />
         </StackPanel>
         <st:AutoGrid Columns="*,*" Rows="Auto" VerticalAlignment="Top"
                      ChildMargin="3"
                      HorizontalAlignment="Stretch" st:AutoGrid.ColumnSpan="2">
             <Button Content="{infrastructure:Translate 'windows.itemPlater.buttons.addPlating'}"
                     Command="{Binding AddPlatingCommand}"
-                    Background="{DynamicResource MahApps.Brushes.Accent}" />
+                    Background="{DynamicResource MahApps.Brushes.Accent}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             <Button Content="{infrastructure:Translate 'windows.itemPlater.buttons.removePlating'}"
                     Command="{Binding RemovePlatingCommand}"
-                    Background="DarkRed" />
+                    Background="DarkRed" FontFamily="Microsoft YaHei UI" FontSize="12" />
         </st:AutoGrid>
     </st:AutoGrid>
 </mah:MetroWindow>

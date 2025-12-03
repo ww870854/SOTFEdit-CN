@@ -30,19 +30,19 @@
                                 <ToggleButton
                                     Width="55"
                                     Content="1:1"
-                                    IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Original}}" />
+                                    IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Original}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                                 <ToggleButton
                                     Width="55"
-                                    Content="Fill"
-                                    IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Fill}}" />
+                                    Content="全图"
+                                    IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Fill}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                                 <ToggleButton
                                     Width="55"
-                                    Content="Custom"
-                                    IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Custom}}" />
+                                    Content="自定义"
+                                    IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Mode, Converter={StaticResource EqualityConverter}, ConverterParameter={x:Static zoomControl:ZoomControlModes.Custom}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                                 <TextBlock
                                     Margin="5,0,0,0"
                                     VerticalAlignment="Center"
-                                    Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Zoom, StringFormat='Zoom: {0:P2}'}" />
+                                    Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Zoom, StringFormat='缩放: {0:P2}'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                             </StackPanel>
                         </Border>
                     </Grid>

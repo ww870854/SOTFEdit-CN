@@ -28,7 +28,7 @@
             <Label Content="{infrastructure:Translate 'map.teleportWindow.destination'}" />
             <Label Content="{Binding Destination}" />
             <Label Content="{infrastructure:Translate 'map.area'}" />
-            <ComboBox ItemsSource="{Binding Areas}" SelectedItem="{Binding SelectedArea}" DisplayMemberPath="Name" />
+            <ComboBox ItemsSource="{Binding Areas}" SelectedItem="{Binding SelectedArea}" DisplayMemberPath="Name" FontFamily="Microsoft YaHei UI" />
         </st:AutoGrid>
 
         <st:AutoGrid Margin="10" ChildMargin="4" Columns="Auto,Auto,Auto,Auto">
@@ -37,22 +37,22 @@
             <Label Content="{infrastructure:Translate 'map.teleportWindow.offset'}" />
             <mah:NumericUpDown Value="{Binding XOffset, UpdateSourceTrigger=PropertyChanged}" Interval="1"
                                NumericInputMode="Decimal" Minimum="-10"
-                               Maximum="10" />
+                               Maximum="10" FontFamily="Microsoft YaHei UI" />
             <Label Content="Y" />
             <Label Content="{Binding Y}" />
             <Label Content="{infrastructure:Translate 'map.teleportWindow.offset'}" />
             <mah:NumericUpDown Value="{Binding YOffset, UpdateSourceTrigger=PropertyChanged}" Interval="1"
                                NumericInputMode="Decimal" Minimum="-10"
-                               Maximum="10" />
+                               Maximum="10" FontFamily="Microsoft YaHei UI" />
             <Label Content="Z" />
             <Label Content="{Binding Z}" />
             <Label Content="{infrastructure:Translate 'map.teleportWindow.offset'}" />
             <mah:NumericUpDown Value="{Binding ZOffset, UpdateSourceTrigger=PropertyChanged}" Interval="1"
                                NumericInputMode="Decimal" Minimum="-10"
-                               Maximum="10" />
+                               Maximum="10" FontFamily="Microsoft YaHei UI" />
         </st:AutoGrid>
         <Button Padding="10" Background="DarkGreen"
                 Content="{infrastructure:Translate 'map.teleportWindow.doTeleport'}"
-                Command="{Binding DoTeleportCommand}" />
+                Command="{Binding DoTeleportCommand}" FontFamily="Microsoft YaHei UI" FontSize="12" />
     </st:AutoGrid>
 </mah:MetroWindow>

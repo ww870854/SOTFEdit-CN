@@ -77,9 +77,9 @@
         <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="15">
             <Button Background="{DynamicResource MahApps.Brushes.Accent}" Padding="10" Margin="0 0 10 0"
                     Command="{Binding CopyToClipboardCommand}"
-                    Content="{infrastructure:Translate 'windows.unhandledException.buttons.copyErrorToClipboard'}" />
+                    Content="{infrastructure:Translate 'windows.unhandledException.buttons.copyErrorToClipboard'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             <Button Background="DarkRed" Padding="10" Command="{Binding ExitApplicationCommand}"
-                    Content="{infrastructure:Translate 'windows.unhandledException.buttons.exitApplication'}" />
+                    Content="{infrastructure:Translate 'windows.unhandledException.buttons.exitApplication'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         </StackPanel>
     </Grid>
 </mah:MetroWindow>

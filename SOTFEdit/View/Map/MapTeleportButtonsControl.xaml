@@ -10,12 +10,12 @@
     <st:AutoGrid Columns="*" ChildMargin="4">
         <TextBlock FontSize="16" Text="{infrastructure:Translate 'map.teleportation'}" />
         <Button Content="{infrastructure:Translate 'map.buttons.teleportPlayer'}" Padding="10"
-                Command="{Binding Poi.TeleportPlayerHereCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                Command="{Binding Poi.TeleportPlayerHereCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         <Button Content="{infrastructure:Translate 'map.buttons.teleportKelvin'}" Padding="10"
-                Command="{Binding Poi.TeleportKelvinHereCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                Command="{Binding Poi.TeleportKelvinHereCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         <Button Content="{infrastructure:Translate 'map.buttons.teleportVirginia'}" Padding="10"
-                Command="{Binding Poi.TeleportVirginiaHereCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                Command="{Binding Poi.TeleportVirginiaHereCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         <Button Content="{infrastructure:Translate 'map.buttons.spawnActors'}" Padding="10"
-                Command="{Binding Poi.SpawnActorsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" />
+                Command="{Binding Poi.SpawnActorsCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" FontFamily="Microsoft YaHei UI" FontSize="12" />
     </st:AutoGrid>
 </UserControl>

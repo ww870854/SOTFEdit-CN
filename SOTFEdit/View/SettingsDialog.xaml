@@ -33,18 +33,18 @@
         <Label Content="{infrastructure:Translate 'windows.settings.theme'}" />
         <ComboBox ItemsSource="{Binding AccentColors, Mode=OneTime}"
                   ItemContainerStyle="{StaticResource AccentColorMenuItemStyle}"
-                  SelectedItem="{Binding CurrentThemeAccent, Mode=TwoWay}" />
+                  SelectedItem="{Binding CurrentThemeAccent, Mode=TwoWay}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.settings.backupMode'}" />
         <ComboBox ItemsSource="{Binding BackupModes, Mode=OneTime}" IsSynchronizedWithCurrentItem="True"
-                  SelectedItem="{Binding CurrentBackupMode}" DisplayMemberPath="Name" />
+                  SelectedItem="{Binding CurrentBackupMode}" DisplayMemberPath="Name" FontFamily="Microsoft YaHei UI" />
         <Label />
         <CheckBox Content="{infrastructure:Translate 'windows.settings.askForBackupsEveryTime'}"
-                  IsChecked="{Binding AskForBackups, UpdateSourceTrigger=PropertyChanged}" />
+                  IsChecked="{Binding AskForBackups, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
         <Label Content="{infrastructure:Translate 'windows.settings.language'}" />
         <ComboBox ItemsSource="{Binding Languages}"
                   SelectedValue="{Binding SelectedLanguage}" DisplayMemberPath="Title"
-                  SelectedValuePath="Value" Margin="0 0 0 10" />
+                  SelectedValuePath="Value" Margin="0 0 0 10" FontFamily="Microsoft YaHei UI" />
         <Button Grid.ColumnSpan="2" Content="{infrastructure:Translate 'generic.save'}" Margin="0 10 0 0"
-                Background="{DynamicResource MahApps.Brushes.Accent}" Command="{Binding SaveCommand}" />
+                Background="{DynamicResource MahApps.Brushes.Accent}" Command="{Binding SaveCommand}" FontSize="12" FontFamily="Microsoft YaHei UI" />
     </st:AutoGrid>
 </mah:MetroWindow>

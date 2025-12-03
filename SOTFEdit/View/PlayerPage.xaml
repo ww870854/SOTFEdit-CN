@@ -41,9 +41,9 @@
                                Height="246"
                                Margin="0 0 0 10" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToKelvinCommand}"
-                                Content="{infrastructure:Translate 'player.buttons.moveToKelvin'}" />
+                                Content="{infrastructure:Translate 'player.buttons.moveToKelvin'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Button Style="{StaticResource ButtonStyle}" Command="{Binding MoveToVirginiaCommand}"
-                                Content="{infrastructure:Translate 'player.buttons.moveToVirginia'}" />
+                                Content="{infrastructure:Translate 'player.buttons.moveToVirginia'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                     </StackPanel>
                     <st:AutoGrid Columns="Auto,*" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="10"
                                  ChildMargin="4">
@@ -72,7 +72,7 @@
                         </StackPanel>
                         <mah:NumericUpDown Style="{StaticResource PlayerNumericUpDownStyle}" Minimum="0" Maximum="100" Interval="1"
                                            NumericInputMode="Numbers"
-                                           Value="{Binding PlayerState.StrengthLevel, UpdateSourceTrigger=PropertyChanged}" />
+                                           Value="{Binding PlayerState.StrengthLevel, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
 
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Heal.png" Width="32"
@@ -83,7 +83,7 @@
                         <mah:NumericUpDown Style="{StaticResource PlayerNumericUpDownStyle}" Minimum="0" Interval="1"
                                            NumericInputMode="Decimal"
                                            IsEnabled="False"
-                                           Value="{Binding PlayerState.MaxHealth, UpdateSourceTrigger=PropertyChanged}" />
+                                           Value="{Binding PlayerState.MaxHealth, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                             <Image Source="pack://application:,,,/SOTFEdit;component/images/icons/Heal.png" Width="32"
                                    Height="32" />
@@ -143,7 +143,7 @@
                                     Value="{Binding PlayerState.FullnessBuff, UpdateSourceTrigger=PropertyChanged}" />
                             <mah:NumericUpDown Style="{StaticResource PlayerNumericUpDownStyle}"
                                                Minimum="-100.0" Maximum="65535" Interval="1" NumericInputMode="Numbers"
-                                               Value="{Binding PlayerState.FullnessBuff, UpdateSourceTrigger=PropertyChanged}" />
+                                               Value="{Binding PlayerState.FullnessBuff, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                         </st:AutoGrid>
 
                         <Label Style="{StaticResource LabelStyle}"
@@ -154,7 +154,7 @@
                                     Value="{Binding PlayerState.HydrationBuff, UpdateSourceTrigger=PropertyChanged}" />
                             <mah:NumericUpDown Style="{StaticResource PlayerNumericUpDownStyle}"
                                                Minimum="-100.0" Maximum="65535" Interval="1" NumericInputMode="Numbers"
-                                               Value="{Binding PlayerState.HydrationBuff, UpdateSourceTrigger=PropertyChanged}" />
+                                               Value="{Binding PlayerState.HydrationBuff, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                         </st:AutoGrid>
 
                         <Label Style="{StaticResource LabelStyle}"
@@ -166,17 +166,17 @@
                             <mah:NumericUpDown Style="{StaticResource PlayerNumericUpDownStyle}"
                                                Minimum="0" Maximum="1" Interval="0.1" NumericInputMode="Decimal"
                                                StringFormat="F2"
-                                               Value="{Binding PlayerState.RestBuff, UpdateSourceTrigger=PropertyChanged}" />
+                                               Value="{Binding PlayerState.RestBuff, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI" />
                         </st:AutoGrid>
 
                         <Button Grid.ColumnSpan="2" HorizontalAlignment="Center"
                                 Background="{DynamicResource MahApps.Brushes.Accent}" Padding="10"
                                 Command="{Binding FillAllBarsCommand}" Margin="0 0 0 10"
-                                Content="{infrastructure:Translate 'player.fillAllBars'}" />
+                                Content="{infrastructure:Translate 'player.fillAllBars'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         <Label Style="{StaticResource LabelStyle}" Content="{infrastructure:Translate 'player.outfit'}" />
                         <ComboBox IsEditable="False"
                                   ItemsSource="{Binding AvailableClothesView}" DisplayMemberPath="Name"
-                                  SelectedItem="{Binding PlayerState.SelectedCloth}" />
+                                  SelectedItem="{Binding PlayerState.SelectedCloth}" FontFamily="Microsoft YaHei UI" />
                     </st:AutoGrid>
                 </st:AutoGrid>
             </ScrollViewer>

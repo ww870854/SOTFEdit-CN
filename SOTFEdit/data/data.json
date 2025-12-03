@@ -4086,6 +4086,8 @@
     {
       "id": 52,
       "classification": "cannibal",
+      "image": "eddy.jpg",
+      "icon": "eddy.png",
       "gender": "male"
     },
     {

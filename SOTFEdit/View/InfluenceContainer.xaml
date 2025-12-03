@@ -34,10 +34,10 @@
                     <ComboBox
                         ItemsSource="{Binding AllInfluences, RelativeSource={RelativeSource AncestorType=UserControl}}"
                         DisplayMemberPath="Title"
-                        SelectedValuePath="Value" x:Name="ComboAddInfluence" />
+                        SelectedValuePath="Value" x:Name="ComboAddInfluence" FontFamily="Microsoft YaHei UI" />
                     <Button Content="{infrastructure:Translate 'generic.add'}"
                             Command="{Binding AddInfluenceCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            CommandParameter="{Binding ElementName=ComboAddInfluence, Path=SelectedItem.Value}" />
+                            CommandParameter="{Binding ElementName=ComboAddInfluence, Path=SelectedItem.Value}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                 </st:AutoGrid>
             </st:AutoGrid>
         </GroupBox.Header>

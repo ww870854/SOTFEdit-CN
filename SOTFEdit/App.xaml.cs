@@ -39,12 +39,12 @@ public partial class App
     {
         InitializeLanguage();
 
-        Logger.Debug("Initializing Application");
+        Logger.Debug("初始化应用程序");
         SetupExceptionHandling();
 
         if (Settings.Default.UpgradeRequired)
         {
-            Logger.Info("Upgrading Settings");
+            Logger.Info("升级设置");
             Settings.Default.Upgrade();
             Settings.Default.UpgradeRequired = false;
             Settings.Default.Save();
@@ -53,7 +53,7 @@ public partial class App
         MessagePackInitializer.Initialize();
         ConfigureServices();
 
-        Logger.Debug("Initializing Component");
+        Logger.Debug("初始化组件");
         InitializeComponent();
     }
 
@@ -78,7 +78,7 @@ public partial class App
 
     private static void ConfigureServices()
     {
-        Logger.Debug("Configuring Services");
+        Logger.Debug("配置服务");
         var services = new ServiceCollection();
         services.AddSingleton(new SavegameManager());
         services.AddSingleton<MainViewModel>();
@@ -91,7 +91,7 @@ public partial class App
         services.AddSingleton<PlayerPageViewModel>();
         services.AddSingleton<WeatherPageViewModel>();
         services.AddSingleton<StoragePageViewModel>();
-        services.AddSingleton(_ => BuildGameDataInstance() ?? throw new Exception("Unable to load Game Data"));
+        services.AddSingleton(_ => BuildGameDataInstance() ?? throw new Exception("无法加载游戏数据"));
         services.AddSingleton<StorageFactory>();
         services.AddSingleton<UpdateChecker>();
         services.AddTransient<SelectSavegameViewModel>();
@@ -121,7 +121,7 @@ public partial class App
 
     private static GameData? BuildGameDataInstance()
     {
-        Logger.Info("Loading data.json");
+        Logger.Info("正在加载 data.json");
         var json = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data", "data.json"));
         return JsonConvert.DeserializeObject<GameData>(json);
     }
@@ -135,14 +135,14 @@ public partial class App
             ThemeManager.Current.ChangeTheme(this, $"{Settings.Default.Theme}.{Settings.Default.ThemeAccent}");
         }
 
-        Logger.Debug("OnStartup()");
+        Logger.Debug("程序启动时()");
         FrameworkElement.LanguageProperty.OverrideMetadata(typeof(FrameworkElement),
             new FrameworkPropertyMetadata(XmlLanguage.GetLanguage(CultureInfo.CurrentCulture.IetfLanguageTag)));
     }
 
     private void SetupExceptionHandling()
     {
-        Logger.Debug("Setting up exception handling");
+        Logger.Debug("配置异常处理");
         AppDomain.CurrentDomain.UnhandledException += (_, e) =>
             LogUnhandledException((Exception)e.ExceptionObject, "AppDomain.CurrentDomain.UnhandledException");
 
@@ -161,15 +161,15 @@ public partial class App
 
     private static void LogUnhandledException(Exception exception, string source, bool sendEvent = true)
     {
-        var message = $"Unhandled exception ({source})";
+        var message = $"未处理的异常 ({source})";
         try
         {
             var assemblyName = Assembly.GetExecutingAssembly().GetName();
-            message = $"Unhandled exception in {assemblyName.Name} v{assemblyName.Version}";
+            message = $"未处理的异常在 {assemblyName.Name} v{assemblyName.Version}";
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, "Exception in LogUnhandledException");
+            Logger.Error(ex, "日志中的异常未处理异常");
         }
         finally
         {

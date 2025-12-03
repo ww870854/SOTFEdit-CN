@@ -154,7 +154,7 @@
                                         </ComboBox.ItemTemplate>
                                     </ComboBox>
                                     <Button Command="{Binding ChangeTypeCommand}"
-                                            Content="{local:Translate 'structures.buttons.changeType'}" />
+                                            Content="{local:Translate 'structures.buttons.changeType'}" FontSize="12" FontFamily="Microsoft YaHei UI" />
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -166,7 +166,7 @@
             <st:AutoGrid Columns="Auto" Rows="Auto,Auto,Auto" ChildMargin="4">
                 <TextBlock Text="{local:Translate 'structures.structureTypeSelectorDisclaimer'}" />
                 <ComboBox ItemsSource="{Binding StructureTypes}"
-                          SelectedItem="{Binding BatchSelectedStructureType, UpdateSourceTrigger=PropertyChanged}">
+                          SelectedItem="{Binding BatchSelectedStructureType, UpdateSourceTrigger=PropertyChanged}" FontFamily="Microsoft YaHei UI">
                     <ComboBox.GroupStyle>
                         <GroupStyle>
                             <GroupStyle.HeaderTemplate>
@@ -187,14 +187,14 @@
                 <GroupBox Header="{local:Translate 'structures.headers.unfinishedStructures'}">
                     <st:AutoGrid Columns="*" ChildMargin="3">
                         <Button Padding="10" Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.unmodifyAll'}">
+                                Content="{local:Translate 'structures.buttons.unmodifyAll'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper ModificationMode="{x:Null}"
                                                                          Origin="Unfinished" />
                             </Button.CommandParameter>
                         </Button>
                         <Button Padding="10" Background="DarkRed" Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToRemove'}">
+                                Content="{local:Translate 'structures.buttons.setAllToRemove'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.Remove}"
@@ -203,7 +203,7 @@
                         </Button>
                         <Button Padding="10" Background="{DynamicResource MahApps.Brushes.Accent}"
                                 Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToAlmostFinish'}">
+                                Content="{local:Translate 'structures.buttons.setAllToAlmostFinish'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.AlmostFinish}"
@@ -212,7 +212,7 @@
                         </Button>
                         <Button Padding="10" Background="{DynamicResource MahApps.Brushes.Accent}"
                                 Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToFinish'}">
+                                Content="{local:Translate 'structures.buttons.setAllToFinish'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.Finish}"
@@ -220,7 +220,7 @@
                             </Button.CommandParameter>
                         </Button>
                         <Button Padding="10" Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToUnfinish'}">
+                                Content="{local:Translate 'structures.buttons.setAllToUnfinish'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.Unfinish}"
@@ -232,13 +232,13 @@
                 <GroupBox Header="{local:Translate 'structures.headers.finishedStructures'}">
                     <st:AutoGrid Columns="*" ChildMargin="3">
                         <Button Padding="10" Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.unmodifyAll'}">
+                                Content="{local:Translate 'structures.buttons.unmodifyAll'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper ModificationMode="{x:Null}" Origin="Finished" />
                             </Button.CommandParameter>
                         </Button>
                         <Button Padding="10" Background="DarkRed" Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToRemove'}">
+                                Content="{local:Translate 'structures.buttons.setAllToRemove'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.Remove}"
@@ -247,7 +247,7 @@
                         </Button>
                         <Button Padding="10" Background="{DynamicResource MahApps.Brushes.Accent}"
                                 Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToAlmostFinish'}">
+                                Content="{local:Translate 'structures.buttons.setAllToAlmostFinish'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.AlmostFinish}"
@@ -255,7 +255,7 @@
                             </Button.CommandParameter>
                         </Button>
                         <Button Padding="10" Command="{Binding SetModificationModeCommand}"
-                                Content="{local:Translate 'structures.buttons.setAllToUnfinish'}">
+                                Content="{local:Translate 'structures.buttons.setAllToUnfinish'}" FontFamily="Microsoft YaHei UI" FontSize="12">
                             <Button.CommandParameter>
                                 <model:ScrewStructureModificationWrapper
                                     ModificationMode="{x:Static model:ScrewStructureModificationMode.Unfinish}"

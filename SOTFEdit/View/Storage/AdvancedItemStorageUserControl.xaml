@@ -33,7 +33,7 @@
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <ComboBox ItemsSource="{Binding ItemsStorage.SupportedItems}"
-                                  SelectedItem="{Binding SelectedItemForAll}" Margin="0 0 10 0">
+                                  SelectedItem="{Binding SelectedItemForAll}" Margin="0 0 10 0" FontFamily="Microsoft YaHei UI">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate DataType="{x:Type storageViewModels:ItemWrapper}">
                                     <st:AutoGrid Columns="*,*">
@@ -50,17 +50,17 @@
                         </ComboBox>
                         <mah:NumericUpDown Margin="0 0 10 0" Grid.Column="1" Minimum="1" Maximum="{Binding Max}"
                                            Value="{Binding Count, UpdateSourceTrigger=PropertyChanged}"
-                                           VerticalAlignment="Center" />
+                                           VerticalAlignment="Center" FontFamily="Microsoft YaHei UI" />
                         <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                             <Button Background="{DynamicResource MahApps.Brushes.Accent}"
                                     Command="{Binding FillAllCommand}" Margin="0 0 10 0"
-                                    Padding="20 10" Content="{infrastructure:Translate 'storage.batch.fillAllWith'}" />
+                                    Padding="20 10" Content="{infrastructure:Translate 'storage.batch.fillAllWith'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                             <Button Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
                                     Command="{Binding SetAllToMaxCommand}"
                                     Margin="0 0 10 0" Padding="20 10"
-                                    Content="{infrastructure:Translate 'storage.batch.setAllToMax'}" />
+                                    Content="{infrastructure:Translate 'storage.batch.setAllToMax'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                             <Button Foreground="DarkOrange" Command="{Binding ClearAllCommand}" Padding="20 10"
-                                    Content="{infrastructure:Translate 'storage.batch.clearAll'}" />
+                                    Content="{infrastructure:Translate 'storage.batch.clearAll'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                         </StackPanel>
                     </Grid>
                 </GroupBox>
@@ -108,10 +108,10 @@
                                                 <Button Foreground="DarkOrange"
                                                         Command="{Binding ClearCommand, Mode=OneTime}"
                                                         Margin="0 0 10 0"
-                                                        Content="{infrastructure:Translate 'storage.slot.remove'}" />
+                                                        Content="{infrastructure:Translate 'storage.slot.remove'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                                                 <Button Grid.Column="1" Foreground="GreenYellow"
                                                         Command="{Binding SetToMaxCommand, Mode=OneTime}"
-                                                        Content="{infrastructure:Translate 'storage.slot.max'}" />
+                                                        Content="{infrastructure:Translate 'storage.slot.max'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                                             </Grid>
                                         </Grid>
                                     </DataTemplate>
@@ -125,6 +125,6 @@
         <Button Margin="0 0 0 10" Grid.Row="1" Foreground="{DynamicResource MahApps.Brushes.AccentBase}"
                 Content="{infrastructure:Translate 'structures.applyToAllOfSameType.text'}"
                 ToolTip="{infrastructure:Translate 'structures.applyToAllOfSameType.tooltip'}" Padding="15"
-                HorizontalAlignment="Center" Command="{Binding ApplyToAllOfSameTypeCommand}" />
+                HorizontalAlignment="Center" Command="{Binding ApplyToAllOfSameTypeCommand}" FontFamily="Microsoft YaHei UI" FontSize="12" />
     </Grid>
 </UserControl>

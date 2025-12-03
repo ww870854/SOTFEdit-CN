@@ -45,7 +45,7 @@
 
             <st:AutoGrid Columns="*" ChildMargin="4" Grid.ColumnSpan="2">
                 <Button Content="{infrastructure:Translate 'generic.edit'}" Padding="10"
-                        Command="{Binding EditActorCommand}" />
+                        Command="{Binding EditActorCommand}" FontSize="12" FontFamily="Microsoft YaHei UI" />
             </st:AutoGrid>
             <map:MapTeleportButtonsControl Poi="{Binding}" Grid.ColumnSpan="2" Margin="4" />
         </st:AutoGrid>

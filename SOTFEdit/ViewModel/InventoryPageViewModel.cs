@@ -226,7 +226,7 @@ public partial class InventoryPageViewModel : ObservableObject
                         item.StorageMax = new StorageMax(itemBlock.TotalCount, item.StorageMax?.Shelf ?? 0,
                             item.StorageMax?.Holder);
                         Logger.Info(
-                            $"Defined max in inventory for {item.Id} is lower ({maxInInventory}) than in savedata ({itemBlock.TotalCount})");
+                            $"库存中 {item.Id} 的最大数量 ({maxInInventory}) 低于存档数据中的数量 ({itemBlock.TotalCount})");
                     }
 
                     return new InventoryItem(itemBlock, item);
@@ -239,7 +239,7 @@ public partial class InventoryPageViewModel : ObservableObject
                     if (item?.StorageMax?.Inventory is { } maxInInventory && maxInInventory < itemBlock.TotalCount)
                     {
                         Logger.Info(
-                            $"Defined max in inventory for {item.Id} is lower ({maxInInventory}) than in savedata ({itemBlock.TotalCount})");
+                            $"库存中 {item.Id} 的最大数量 ({maxInInventory}) 低于存档数据中的数量 ({itemBlock.TotalCount})");
                     }
 
                     itemBlock.TotalCount = 1;

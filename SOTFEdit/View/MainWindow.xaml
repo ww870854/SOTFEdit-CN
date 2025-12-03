@@ -39,7 +39,7 @@
                     <zoomControl:ZoomControl x:Name="ZoomCtrl" Mode="Fill" MaxZoom="2"
                                              Zoom="{Binding Zoom, Source={StaticResource ZoomHandler}, Mode=OneWayToSource}">
                         <Grid>
-                            <Image Source="pack://application:,,,/SOTFEdit;component/images/map/bright.jpg"
+                            <Image Source="pack://application:,,,/SOTFEdit;component/images/map/dark.jpg"
                                    Width="4096"
                                    Height="4096" />
                             <Canvas Width="4096" Height="4096">

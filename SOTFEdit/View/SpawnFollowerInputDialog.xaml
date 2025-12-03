@@ -30,14 +30,14 @@
         <TextBlock TextWrapping="Wrap" Margin="0 0 0 5" Padding="5"
                    Text="{infrastructure:Translate 'dialogs.spawnFollower.disclaimer'}" />
         <mah:NumericUpDown Grid.Row="1" Value="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Interval="1"
-                           Minimum="1" Maximum="{Binding Max}" Margin="0 0 0 5" />
+                           Minimum="1" Maximum="{Binding Max}" Margin="0 0 0 5" FontFamily="Microsoft YaHei UI" />
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Content="{infrastructure:Translate 'generic.ok'}" IsDefault="True" Margin="0 0 5 0"
                     Command="{Binding OkCommand}" Padding="20 10"
-                    Background="{DynamicResource MahApps.Brushes.Accent}" />
+                    Background="{DynamicResource MahApps.Brushes.Accent}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             <Button Content="{infrastructure:Translate 'generic.cancel'}" IsCancel="True"
                     Command="{Binding CancelCommand}" Padding="20 10"
-                    Background="DarkRed" />
+                    Background="DarkRed" FontFamily="Microsoft YaHei UI" FontSize="12" />
         </StackPanel>
     </Grid>
 </mah:MetroWindow>

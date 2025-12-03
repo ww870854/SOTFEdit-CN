@@ -15,7 +15,7 @@
         <st:AutoGrid Margin="10" Rows="Auto,*,Auto" Columns="*">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 10 0 20">
                 <ComboBox Margin="0,0,5,0" ItemsSource="{Binding ArmourTypes}"
-                          SelectedItem="{Binding NewArmour.SelectedItem}">
+                          SelectedItem="{Binding NewArmour.SelectedItem}" FontFamily="Microsoft YaHei UI">
                     <ComboBox.ItemTemplate>
                         <DataTemplate DataType="{x:Type model:Item}">
                             <st:AutoGrid Columns="*,*">
@@ -32,11 +32,11 @@
                 <Button Margin="0,0,5,0" ToolTip="{infrastructure:Translate 'armor.buttons.setToDefault.tooltip'}"
                         VerticalAlignment="Center"
                         Command="{Binding NewArmour.SetDefaultDurabilityForNewArmourCommand}"
-                        Content="{infrastructure:Translate 'armor.buttons.setToDefault.text'}" />
+                        Content="{infrastructure:Translate 'armor.buttons.setToDefault.text'}" FontSize="12" FontFamily="Microsoft YaHei UI" />
                 <Button Margin="0,0,5,0" ToolTip="{infrastructure:Translate 'armor.buttons.setToMax.tooltip'}"
                         VerticalAlignment="Center"
                         Command="{Binding NewArmour.SetMaxDurabilityForNewArmourCommand}"
-                        Content="{infrastructure:Translate 'armor.buttons.setToMax.text'}" />
+                        Content="{infrastructure:Translate 'armor.buttons.setToMax.text'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                 <mah:NumericUpDown
                     ToolTip="{infrastructure:Translate 'armor.durabilityInput.tooltip'}"
                     Margin="0,0,5,0"
@@ -44,11 +44,11 @@
                     Interval="10"
                     VerticalAlignment="Center"
                     Value="{Binding NewArmour.RemainingArmourpoints, UpdateSourceTrigger=PropertyChanged}"
-                    MinWidth="100" />
+                    MinWidth="100" FontFamily="Microsoft YaHei UI" />
                 <Button Background="{DynamicResource MahApps.Brushes.Accent}"
                         VerticalAlignment="Center"
                         Command="{Binding NewArmour.AddArmorCommand}"
-                        Content="{infrastructure:Translate 'generic.add'}" />
+                        Content="{infrastructure:Translate 'generic.add'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             </StackPanel>
             <DataGrid Height="Auto" AutoGenerateColumns="False"
                       SelectionMode="Single" ItemsSource="{Binding ArmourView}"
@@ -76,14 +76,14 @@
                             <Button Margin="0,0,5,0" Background="DarkRed"
                                     Command="{Binding DataContext.RemoveArmourCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                     CommandParameter="{Binding}"
-                                    Content="{infrastructure:Translate 'armor.buttons.remove'}" />
+                                    Content="{infrastructure:Translate 'armor.buttons.remove'}" FontSize="12" FontFamily="Microsoft YaHei UI" />
                             <Button Margin="0,0,5,0" Command="{Binding SetDurabilityCommand}"
                                     CommandParameter="{Binding DefaultDurability}"
-                                    Content="{infrastructure:Translate 'armor.buttons.default'}" />
+                                    Content="{infrastructure:Translate 'armor.buttons.default'}" FontSize="12" FontFamily="Microsoft YaHei UI" />
                             <Button Background="{DynamicResource MahApps.Brushes.Accent}"
                                     Command="{Binding SetDurabilityCommand}"
                                     CommandParameter="{Binding MaxDurability}"
-                                    Content="{infrastructure:Translate 'armor.buttons.max'}" />
+                                    Content="{infrastructure:Translate 'armor.buttons.max'}" FontSize="12" FontFamily="Microsoft YaHei UI" />
                         </StackPanel>
                     </DataTemplate>
                 </DataGrid.Resources>
@@ -105,11 +105,11 @@
                 <Button Padding="10" ToolTip="{infrastructure:Translate 'armor.buttons.setAllToDefault.tooltip'}"
                         Margin="0,0,10,0"
                         Command="{Binding SetAllToDefaultCommand}"
-                        Content="{infrastructure:Translate 'armor.buttons.setAllToDefault.text'}" />
+                        Content="{infrastructure:Translate 'armor.buttons.setAllToDefault.text'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
                 <Button Background="{DynamicResource MahApps.Brushes.Accent}"
                         ToolTip="{infrastructure:Translate 'armor.buttons.setAllToMax.text'}" Padding="10"
                         Command="{Binding SetAllToMaxCommand}"
-                        Content="{infrastructure:Translate 'armor.buttons.setAllToMax.text'}" />
+                        Content="{infrastructure:Translate 'armor.buttons.setAllToMax.text'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             </StackPanel>
         </st:AutoGrid>
     </GroupBox>

@@ -29,7 +29,7 @@ public class SavegameManager : ObservableObject
     public static Dictionary<string, Savegame> GetSavegames()
     {
         var savesPath = GetSavePath();
-        Logger.Info($"Detected savegame path: {savesPath}");
+        Logger.Info($"检测到的存档路径: {savesPath}");
         return FindSaveGames(savesPath);
     }
 
@@ -43,7 +43,7 @@ public class SavegameManager : ObservableObject
 
     private static Dictionary<string, Savegame> FindSaveGames(string? savesPath, string? idFilter = null)
     {
-        Logger.Info($"Reading savegames from {savesPath}");
+        Logger.Info($"读取存档文件 {savesPath}");
         if (!Directory.Exists(savesPath))
         {
             return new Dictionary<string, Savegame>();
@@ -63,7 +63,7 @@ public class SavegameManager : ObservableObject
         }
         catch (Exception ex)
         {
-            Logger.Error(ex, $"Unable to read savegames from {savesPath}");
+            Logger.Error(ex, $"无法读取存档文件 {savesPath}");
         }
 
         return new Dictionary<string, Savegame>();

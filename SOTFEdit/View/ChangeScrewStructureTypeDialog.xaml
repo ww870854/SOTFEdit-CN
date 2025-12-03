@@ -25,7 +25,7 @@
         <ComboBox Grid.Row="1" ItemsSource="{Binding ScrewStructures}"
                   Margin="0 0 0 10"
                   HorizontalAlignment="Stretch"
-                  SelectedItem="{Binding SelectedScrewStructure, UpdateSourceTrigger=PropertyChanged}" Padding="6">
+                  SelectedItem="{Binding SelectedScrewStructure, UpdateSourceTrigger=PropertyChanged}" Padding="6" FontFamily="Microsoft YaHei UI">
             <ComboBox.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.HeaderTemplate>
@@ -46,9 +46,9 @@
         <st:AutoGrid Grid.Row="2" HorizontalAlignment="Stretch" Columns="*,*">
             <Button Margin="0 0 8 0" Command="{Binding OkCommand}"
                     Background="{DynamicResource MahApps.Brushes.Accent}" Padding="10"
-                    Content="{infrastructure:Translate 'generic.ok'}" />
+                    Content="{infrastructure:Translate 'generic.ok'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
             <Button Command="{Binding CancelCommand}" Background="DarkRed" Padding="10"
-                    Content="{infrastructure:Translate 'generic.cancel'}" />
+                    Content="{infrastructure:Translate 'generic.cancel'}" FontFamily="Microsoft YaHei UI" FontSize="12" />
         </st:AutoGrid>
     </Grid>
 </mah:BaseMetroDialog>
